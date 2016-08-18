@@ -1,6 +1,8 @@
 package com.fdbr.android.base;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -19,7 +21,24 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
     protected void bindView() {
         ButterKnife.bind(this);
+    }
+
+    private SharedPreferences getSharedPreferences()
+    {
+        return PreferenceManager.getDefaultSharedPreferences(this);
+    }
+
+    public void saveToPreference(final String key, final String value)
+    {
+        getSharedPreferences().edit()
+                .putString(key, value)
+                .commit();
     }
 }

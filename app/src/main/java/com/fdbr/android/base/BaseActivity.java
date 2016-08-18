@@ -9,13 +9,14 @@ import android.support.annotation.Nullable;
 public abstract class BaseActivity extends AbstractBaseActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
         super.bindView();
         onCreate();
     }
 
-    abstract void onCreate();
-    abstract int getContentView();
+
+    protected abstract void onCreate();
+    public abstract int getContentView();
 }
