@@ -1,4 +1,4 @@
-package com.fdbr.android.api.response;
+package com.fdbr.android.model;
 
 /**
  * Created by Wandy on 8/18/2016.
