@@ -4,9 +4,9 @@ import android.preference.PreferenceManager;
 
 import com.fdbr.android.Constant;
 import com.fdbr.android.R;
-import com.fdbr.android.api.response.AccessToken;
 import com.fdbr.android.base.BaseActivity;
 import com.fdbr.android.manager.AccessTokenPresenterImplementation;
+import com.fdbr.android.model.AccessToken;
 import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.AccessTokenView;
 
