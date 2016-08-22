@@ -1,18 +1,33 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply plugin: 'android-apt'
 
 android {
     signingConfigs {
         debugconfig {
-            keyAlias 'debugfemaledaily'
+            keyAlias 'FemaleDaily'
             keyPassword 'debugfemaledaily42'
-            storeFile file('Q:/FemaleDaily/keystore/debugfemaledaily.jks')
+            storeFile file('../keystores/debugfemaledaily.jks')
             storePassword 'debugfemaledaily42'
         }
         releaseconfig {
-            keyAlias 'releasefemaledaily'
+            keyAlias 'FemaleDaily'
             keyPassword 'releasefemaledaily42'
-            storeFile file('Q:/FemaleDaily/keystore/releasefemaledaily.jks')
+            storeFile file('../keystores/releasefemaledaily.jks')
             storePassword 'releasefemaledaily42'
         }
     }
@@ -24,18 +39,31 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        buildConfigField("String", "BASE_URL", "\"http://52.76.229.117/app/v1/\"")
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.releaseconfig
+            resValue "string", "app_name", "Female Daily"
         }
         debug {
             signingConfig signingConfigs.debugconfig
             applicationIdSuffix '.debug'
             versionNameSuffix '-Dev'
+            resValue "string", "app_name", "Female Daily Dev"
+            buildConfigField("String", "BASE_URL", "\"http://52.76.229.117/app/v1/\"")
         }
+    }
+
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+
+    defaultConfig {
+        multiDexEnabled true
     }
 }
 
@@ -59,4 +87,7 @@ dependencies {
     //rxandroid
     compile 'io.reactivex:rxjava:1.1.0'
     //rxandroid
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
+        transitive = true;
+    }
 }
