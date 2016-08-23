@@ -1,4 +1,4 @@
-package com.fdbr.android.view;
+package com.fdbr.android.view.interfaces;
 
 
 import com.fdbr.android.model.AccessToken;

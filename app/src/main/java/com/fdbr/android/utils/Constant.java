@@ -1,4 +1,6 @@
-package com.fdbr.android;
+package com.fdbr.android.utils;
+
+import com.fdbr.android.BuildConfig;
 
 /**
  * Created by Wandy on 8/16/2016.

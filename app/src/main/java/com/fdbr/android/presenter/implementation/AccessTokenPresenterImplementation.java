@@ -1,12 +1,12 @@
-package com.fdbr.android.manager;
+package com.fdbr.android.presenter.implementation;
 
 import com.fdbr.android.api.AccessTokenAPI;
 import com.fdbr.android.base.BaseNetworkManager;
-import com.fdbr.android.manager.basepresenter.AccessTokenPresenter;
+import com.fdbr.android.presenter.AccessTokenPresenter;
 import com.fdbr.android.model.AccessToken;
 import com.fdbr.android.model.Success;
 import com.fdbr.android.utils.Utils;
-import com.fdbr.android.view.AccessTokenView;
+import com.fdbr.android.view.interfaces.AccessTokenView;
 
 import rx.Subscriber;
 import rx.Subscription;

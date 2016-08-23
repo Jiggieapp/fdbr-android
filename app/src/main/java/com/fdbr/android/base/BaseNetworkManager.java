@@ -1,8 +1,7 @@
 package com.fdbr.android.base;
 
 import com.fdbr.android.App;
-import com.fdbr.android.Constant;
-import com.fdbr.android.utils.Utils;
+import com.fdbr.android.utils.Constant;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
