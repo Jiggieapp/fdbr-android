@@ -1,6 +1,6 @@
 package com.fdbr.android.api;
 
-import com.fdbr.android.Constant;
+import com.fdbr.android.utils.Constant;
 import com.fdbr.android.model.AccessToken;
 import com.fdbr.android.model.Success;
 

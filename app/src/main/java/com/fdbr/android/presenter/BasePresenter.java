@@ -1,4 +1,4 @@
-package com.fdbr.android.manager.basepresenter;
+package com.fdbr.android.presenter;
 
 /**
  * Created by Wandy on 8/18/2016.

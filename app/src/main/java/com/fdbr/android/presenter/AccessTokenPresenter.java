@@ -1,6 +1,6 @@
-package com.fdbr.android.manager.basepresenter;
+package com.fdbr.android.presenter;
 
-import com.fdbr.android.view.AccessTokenView;
+import com.fdbr.android.view.interfaces.AccessTokenView;
 
 /**
  * Created by Wandy on 8/18/2016.
