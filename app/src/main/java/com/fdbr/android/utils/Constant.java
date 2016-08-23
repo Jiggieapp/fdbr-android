@@ -18,4 +18,6 @@ public class Constant {
 
     //pref
     public static final String ACCESS_TOKEN_PREF = "access_token";
+
+    //status code
 }

@@ -5,6 +5,7 @@ import com.fdbr.android.model.RegisterModel;
 
 import java.util.HashMap;
 
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 import retrofit2.http.Url;
@@ -16,9 +17,9 @@ import rx.Observable;
 public interface AccountAPI {
 
     @POST
-    Observable<RegisterModel> postRegister(@Url String url, @Body HashMap<String, Object> registerModel);
+    Observable<Response<RegisterModel>> postRegister(@Url String url, @Body HashMap<String, Object> postRegisterModel);
 
     @POST
-    Observable<LoginModel> postLogin(@Url String url, @Body HashMap<String, Object> loginModel);
+    Observable<Response<LoginModel>> postLogin(@Url String url, @Body HashMap<String, Object> postLoginModel);
 
 }

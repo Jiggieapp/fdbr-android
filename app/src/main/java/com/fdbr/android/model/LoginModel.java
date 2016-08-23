@@ -41,117 +41,67 @@ public final class LoginModel {
     }
 
     public static final class Data {
-        public final ArrayList<Row> rows;
-        public final Vb vb;
+        public final Rows rows;
         public final String token;
 
-        public Data(ArrayList<Row> rows, Vb vb, String token){
+        public Data(Rows rows, String token){
             this.rows = rows;
-            this.vb = vb;
             this.token = token;
         }
 
-        public ArrayList<Row> getRows() {
+        public Rows getRows() {
             return rows;
-        }
-
-        public Vb getVb() {
-            return vb;
         }
 
         public String getToken() {
             return token;
         }
 
-        public static final class Row {
-            public final long usrapo_id;
-            public final long user_id;
+        public static final class Rows {
             public final String fullname;
             public final String username;
-            public final String password;
-            public final String dob;
             public final String email;
-            public final String userabout;
-            public final long userdata_completion;
-            public final long userage_range;
-            public final String userabout_set;
-            public final String joindate;
-            public final String lastvisit;
-            public final String lastactivity;
-            public final String lastreview;
-            public final long lastreputation;
-            public final long wishlistnum;
-            public final long ownitnum;
-            public final long reviewnum;
-            public final long productsubmitnum;
-            public final String user_banned;
-            public final String user_gender;
-            public final String user_occupation;
-            public final long user_usrlvl_id;
-            public final long user_total_point;
-            public final long user_total_badge;
-            public final String user_blog;
-            public final String user_facebook;
-            public final String user_instagram;
-            public final String user_instagram_auth;
-            public final String user_youtube;
-            public final String user_twitter;
-            public final String user_v_brand;
-            public final String user_v_scent;
-            public final String user_v_salon;
-            public final long user_agree_term;
-            public final long user_subscribe_newsletter;
-            public final String user_beauty_panelist;
-            public final String user_connect_fb;
+            public final Birthday birthday;
+            public final String join_date;
+            public final String about;
+            public final long follower_count;
+            public final long following_count;
+            public final long total_point;
+            public final long total_badge;
+            public final long total_review;
+            public final String bio;
+            public final String facebook;
+            public final String twitter;
+            public final String instagram;
+            public final String youtube;
+            public final String blog;
+            public final Picture picture;
+            public final Beauty_profile beauty_profile;
+            public final Beauty_concern beauty_concern;
+            public final ArrayList<Brand> brands;
 
-            public Row(long usrapo_id, long user_id, String fullname, String username, String password, String dob, String email, String userabout, long userdata_completion, long userage_range, String userabout_set, String joindate, String lastvisit, String lastactivity, String lastreview, long lastreputation, long wishlistnum, long ownitnum, long reviewnum, long productsubmitnum, String user_banned, String user_gender, String user_occupation, long user_usrlvl_id, long user_total_point, long user_total_badge, String user_blog, String user_facebook, String user_instagram, String user_instagram_auth, String user_youtube, String user_twitter, String user_v_brand, String user_v_scent, String user_v_salon, long user_agree_term, long user_subscribe_newsletter, String user_beauty_panelist, String user_connect_fb){
-                this.usrapo_id = usrapo_id;
-                this.user_id = user_id;
+            public Rows(String fullname, String username, String email, Birthday birthday, String join_date, String about, long follower_count, long following_count, long total_point, long total_badge, long total_review, String bio, String facebook, String twitter, String instagram, String youtube, String blog, Picture picture, Beauty_profile beauty_profile, Beauty_concern beauty_concern, ArrayList<Brand> brands){
                 this.fullname = fullname;
                 this.username = username;
-                this.password = password;
-                this.dob = dob;
                 this.email = email;
-                this.userabout = userabout;
-                this.userdata_completion = userdata_completion;
-                this.userage_range = userage_range;
-                this.userabout_set = userabout_set;
-                this.joindate = joindate;
-                this.lastvisit = lastvisit;
-                this.lastactivity = lastactivity;
-                this.lastreview = lastreview;
-                this.lastreputation = lastreputation;
-                this.wishlistnum = wishlistnum;
-                this.ownitnum = ownitnum;
-                this.reviewnum = reviewnum;
-                this.productsubmitnum = productsubmitnum;
-                this.user_banned = user_banned;
-                this.user_gender = user_gender;
-                this.user_occupation = user_occupation;
-                this.user_usrlvl_id = user_usrlvl_id;
-                this.user_total_point = user_total_point;
-                this.user_total_badge = user_total_badge;
-                this.user_blog = user_blog;
-                this.user_facebook = user_facebook;
-                this.user_instagram = user_instagram;
-                this.user_instagram_auth = user_instagram_auth;
-                this.user_youtube = user_youtube;
-                this.user_twitter = user_twitter;
-                this.user_v_brand = user_v_brand;
-                this.user_v_scent = user_v_scent;
-                this.user_v_salon = user_v_salon;
-                this.user_agree_term = user_agree_term;
-                this.user_subscribe_newsletter = user_subscribe_newsletter;
-                this.user_beauty_panelist = user_beauty_panelist;
-                this.user_connect_fb = user_connect_fb;
-            }
-
-            public long getUsrapo_id() {
-                return usrapo_id;
-            }
-
-            public long getUser_id() {
-                return user_id;
+                this.birthday = birthday;
+                this.join_date = join_date;
+                this.about = about;
+                this.follower_count = follower_count;
+                this.following_count = following_count;
+                this.total_point = total_point;
+                this.total_badge = total_badge;
+                this.total_review = total_review;
+                this.bio = bio;
+                this.facebook = facebook;
+                this.twitter = twitter;
+                this.instagram = instagram;
+                this.youtube = youtube;
+                this.blog = blog;
+                this.picture = picture;
+                this.beauty_profile = beauty_profile;
+                this.beauty_concern = beauty_concern;
+                this.brands = brands;
             }
 
             public String getFullname() {
@@ -162,215 +112,247 @@ public final class LoginModel {
                 return username;
             }
 
-            public String getPassword() {
-                return password;
-            }
-
-            public String getDob() {
-                return dob;
-            }
-
             public String getEmail() {
                 return email;
             }
 
-            public String getUserabout() {
-                return userabout;
+            public Birthday getBirthday() {
+                return birthday;
             }
 
-            public long getUserdata_completion() {
-                return userdata_completion;
+            public String getJoin_date() {
+                return join_date;
             }
 
-            public long getUserage_range() {
-                return userage_range;
+            public String getAbout() {
+                return about;
             }
 
-            public String getUserabout_set() {
-                return userabout_set;
+            public long getFollower_count() {
+                return follower_count;
             }
 
-            public String getJoindate() {
-                return joindate;
+            public long getFollowing_count() {
+                return following_count;
             }
 
-            public String getLastvisit() {
-                return lastvisit;
+            public long getTotal_point() {
+                return total_point;
             }
 
-            public String getLastactivity() {
-                return lastactivity;
+            public long getTotal_badge() {
+                return total_badge;
             }
 
-            public String getLastreview() {
-                return lastreview;
+            public long getTotal_review() {
+                return total_review;
             }
 
-            public long getLastreputation() {
-                return lastreputation;
+            public String getBio() {
+                return bio;
             }
 
-            public long getWishlistnum() {
-                return wishlistnum;
+            public String getFacebook() {
+                return facebook;
             }
 
-            public long getOwnitnum() {
-                return ownitnum;
+            public String getTwitter() {
+                return twitter;
             }
 
-            public long getReviewnum() {
-                return reviewnum;
+            public String getInstagram() {
+                return instagram;
             }
 
-            public long getProductsubmitnum() {
-                return productsubmitnum;
+            public String getYoutube() {
+                return youtube;
             }
 
-            public String getUser_banned() {
-                return user_banned;
+            public String getBlog() {
+                return blog;
             }
 
-            public String getUser_gender() {
-                return user_gender;
+            public Picture getPicture() {
+                return picture;
             }
 
-            public String getUser_occupation() {
-                return user_occupation;
+            public Beauty_profile getBeauty_profile() {
+                return beauty_profile;
             }
 
-            public long getUser_usrlvl_id() {
-                return user_usrlvl_id;
+            public Beauty_concern getBeauty_concern() {
+                return beauty_concern;
             }
 
-            public long getUser_total_point() {
-                return user_total_point;
+            public ArrayList<Brand> getBrands() {
+                return brands;
             }
 
-            public long getUser_total_badge() {
-                return user_total_badge;
-            }
+            public static final class Birthday {
 
-            public String getUser_blog() {
-                return user_blog;
-            }
-
-            public String getUser_facebook() {
-                return user_facebook;
-            }
-
-            public String getUser_instagram() {
-                return user_instagram;
-            }
-
-            public String getUser_instagram_auth() {
-                return user_instagram_auth;
-            }
-
-            public String getUser_youtube() {
-                return user_youtube;
-            }
-
-            public String getUser_twitter() {
-                return user_twitter;
-            }
-
-            public String getUser_v_brand() {
-                return user_v_brand;
-            }
-
-            public String getUser_v_scent() {
-                return user_v_scent;
-            }
-
-            public String getUser_v_salon() {
-                return user_v_salon;
-            }
-
-            public long getUser_agree_term() {
-                return user_agree_term;
-            }
-
-            public long getUser_subscribe_newsletter() {
-                return user_subscribe_newsletter;
-            }
-
-            public String getUser_beauty_panelist() {
-                return user_beauty_panelist;
-            }
-
-            public String getUser_connect_fb() {
-                return user_connect_fb;
-            }
-        }
-
-        public static final class Vb {
-            public final boolean login_success;
-            public final Error error;
-            public final Result result;
-
-            public Vb(boolean login_success, Error error, Result result){
-                this.login_success = login_success;
-                this.error = error;
-                this.result = result;
-            }
-
-            public boolean isLogin_success() {
-                return login_success;
-            }
-
-            public Error getError() {
-                return error;
-            }
-
-            public Result getResult() {
-                return result;
-            }
-
-            public static final class Error {
-                public final String message;
-
-                public Error(String message){
-                    this.message = message;
-                }
-
-                public String getMessage() {
-                    return message;
+                public Birthday(){
                 }
             }
 
-            public static final class Result {
-                public final User_info user_info;
+            public static final class Picture {
+                public final String xtra_small;
+                public final String small;
+                public final String medium;
+                public final String large;
 
-                public User_info getUser_info() {
-                    return user_info;
+                public Picture(String xtra_small, String small, String medium, String large){
+                    this.xtra_small = xtra_small;
+                    this.small = small;
+                    this.medium = medium;
+                    this.large = large;
                 }
 
-                public Result(User_info user_info){
-                    this.user_info = user_info;
+                public String getXtra_small() {
+                    return xtra_small;
                 }
 
-                public static final class User_info {
-                    public final String userid;
-                    public final String username;
-                    public final String joindate;
+                public String getSmall() {
+                    return small;
+                }
 
-                    public User_info(String userid, String username, String joindate){
-                        this.userid = userid;
-                        this.username = username;
-                        this.joindate = joindate;
-                    }
+                public String getMedium() {
+                    return medium;
+                }
 
-                    public String getUserid() {
-                        return userid;
-                    }
+                public String getLarge() {
+                    return large;
+                }
+            }
 
-                    public String getUsername() {
-                        return username;
-                    }
+            public static final class Beauty_profile {
+                public final Skin_type_id skin_type_id;
+                public final String skin_type_name;
+                public final Skin_tone_id skin_tone_id;
+                public final String skin_tone_name;
+                public final Skin_undertone_id skin_undertone_id;
+                public final String skin_undertone_name;
+                public final Skin_hairtype_id skin_hairtype_id;
+                public final String skin_hairtype_name;
+                public final Hair_texture_id hair_texture_id;
+                public final String hair_texture_name;
 
-                    public String getJoindate() {
-                        return joindate;
+                public Beauty_profile(Skin_type_id skin_type_id, String skin_type_name, Skin_tone_id skin_tone_id, String skin_tone_name, Skin_undertone_id skin_undertone_id, String skin_undertone_name, Skin_hairtype_id skin_hairtype_id, String skin_hairtype_name, Hair_texture_id hair_texture_id, String hair_texture_name){
+                    this.skin_type_id = skin_type_id;
+                    this.skin_type_name = skin_type_name;
+                    this.skin_tone_id = skin_tone_id;
+                    this.skin_tone_name = skin_tone_name;
+                    this.skin_undertone_id = skin_undertone_id;
+                    this.skin_undertone_name = skin_undertone_name;
+                    this.skin_hairtype_id = skin_hairtype_id;
+                    this.skin_hairtype_name = skin_hairtype_name;
+                    this.hair_texture_id = hair_texture_id;
+                    this.hair_texture_name = hair_texture_name;
+                }
+
+                public Skin_type_id getSkin_type_id() {
+                    return skin_type_id;
+                }
+
+                public String getSkin_type_name() {
+                    return skin_type_name;
+                }
+
+                public Skin_tone_id getSkin_tone_id() {
+                    return skin_tone_id;
+                }
+
+                public String getSkin_tone_name() {
+                    return skin_tone_name;
+                }
+
+                public Skin_undertone_id getSkin_undertone_id() {
+                    return skin_undertone_id;
+                }
+
+                public String getSkin_undertone_name() {
+                    return skin_undertone_name;
+                }
+
+                public Skin_hairtype_id getSkin_hairtype_id() {
+                    return skin_hairtype_id;
+                }
+
+                public String getSkin_hairtype_name() {
+                    return skin_hairtype_name;
+                }
+
+                public Hair_texture_id getHair_texture_id() {
+                    return hair_texture_id;
+                }
+
+                public String getHair_texture_name() {
+                    return hair_texture_name;
+                }
+
+                public static final class Skin_type_id {
+
+                    public Skin_type_id(){
                     }
+                }
+
+                public static final class Skin_tone_id {
+
+                    public Skin_tone_id(){
+                    }
+                }
+
+                public static final class Skin_undertone_id {
+
+                    public Skin_undertone_id(){
+                    }
+                }
+
+                public static final class Skin_hairtype_id {
+
+                    public Skin_hairtype_id(){
+                    }
+                }
+
+                public static final class Hair_texture_id {
+
+                    public Hair_texture_id(){
+                    }
+                }
+            }
+
+            public static final class Beauty_concern {
+                public final ArrayList<Skin> skin;
+                public final ArrayList<Body> body;
+                public final ArrayList<Hair> hair;
+
+                public Beauty_concern(ArrayList<Skin> skin, ArrayList<Body> body, ArrayList<Hair> hair){
+                    this.skin = skin;
+                    this.body = body;
+                    this.hair = hair;
+                }
+
+                public static final class Skin {
+
+                    public Skin(){
+                    }
+                }
+
+                public static final class Body {
+
+                    public Body(){
+                    }
+                }
+
+                public static final class Hair {
+
+                    public Hair(){
+                    }
+                }
+            }
+
+            public static final class Brand {
+
+                public Brand(){
                 }
             }
         }
