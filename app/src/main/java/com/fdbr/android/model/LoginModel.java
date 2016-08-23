@@ -192,6 +192,8 @@ public final class LoginModel {
 
                 public Birthday(){
                 }
+
+
             }
 
             public static final class Picture {

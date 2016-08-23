@@ -15,6 +15,7 @@ public class Constant {
 
     public static final String URL_REGISTER = BASE_URL + "register";
     public static final String URL_LOGIN = BASE_URL + "login";
+    public static final String URL_PROFILE = BASE_URL + "user/profile/{id}";
 
     //pref
     public static final String ACCESS_TOKEN_PREF = "access_token";
