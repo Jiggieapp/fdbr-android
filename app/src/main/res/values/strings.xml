@@ -1,3 +1,153 @@
 <resources>
     <!--<string name="app_name">FDBR</string>-->
+
+    <!--WELCOME SCREEN-->
+    <string name="wl_to">Welcome to</string>
+    <string name="wl_or">OR</string>
+    <string name="wl_sign_up">Sign Up</string>
+    <!--END OF WELCOME SCREEN-->
+
+    <!--SIGN IN SCREEN-->
+    <string name="sgin">Sign In</string>
+    <!--END OF SIGN IN SCREEN-->
+
+    <!--SIGN UP SCREEN-->
+    <string name="sgup">Sign Up</string>
+    <string name="sgup_desc">Tell us a few details about yourself and we'll get you on your way.</string>
+    <string name="sgup_pp">Add your profile picture</string>
+    <string name="sgup_agree">By signing up, your agree to our</string>
+    <string name="sgup_term">Terms of Service</string>
+    <string name="sgup_policy">Privacy Policy</string>
+    <string name="sgup_n">\u0026</string>
+    <!--END OF SIGN UP SCREEN-->
+
+    <!--ADD BEAUTY CONCERN SCREEN-->
+    <string name="bc">Add Beauty Concerns</string>
+    <string name="bc_skin">Skin Concern</string>
+    <string name="bc_body">Body Concern</string>
+    <string name="bc_hair">Hair Concern</string>
+    <!--END OF ADD BEAUTY CONCERN SCREEN-->
+
+    <!--MAIN SCREEN-->
+    <string name="main_discover">Discover</string>
+    <string name="main_add">Add</string>
+    <string name="main_product">Product</string>
+    <!--END OF MAIN SCREEN-->
+
+    <!--PROFILE SCREEN-->
+    <string name="pf_following">following</string>
+    <string name="pf_followers">followers</string>
+
+    <string name="pf_badges">Badges Earned</string>
+    <string name="pf_beauty">Beauty Profile</string>
+    <string name="pf_beautycon">Beauty Concern</string>
+    <!--END OF PROFILE SCREEN-->
+
+    <!--SETTING SCREEN-->
+    <string name="st_chpass">Change Password</string>
+    <string name="st_account">Account</string>
+    <string name="st_linked">Linked Social Accounts</string>
+    <string name="st_support">Support</string>
+    <string name="st_ct_support">Contact Support</string>
+    <string name="st_sgout">Sign Out</string>
+    <!--END OF SETTING SCREEN-->
+
+    <!--PUSH NOTIFICATION SCREEN-->
+    <string name="pn_mention">Mentions</string>
+    <string name="pn_none">None</string>
+    <string name="pn_ppfollow">People You Follow</string>
+    <string name="pn_all">All</string>
+    <string name="pn_notif">Notifications</string>
+    <string name="pn_foll">Follows</string>
+    <string name="pn_rev">Review eminders</string>
+    <string name="pn_campaign">Campaigns \u0026 Giveaways</string>
+    <!--END OF PUSH NOTIFICATION SCREEN-->
+
+    <!--SOCIAL ACCOUNTS SCREEN-->
+    <string name="soc_acc">Social Accounts</string>
+    <string name="soc_acc_linked">Linked</string>
+    <!--END OF SOCIAL ACCOUNTS SCREEN-->
+
+    <!--CHANGE PASSWORD SCREEN-->
+    <string name="chp_cur">Current Password</string>
+    <string name="chp_new">New Password</string>
+    <string name="chp_con">Confirm Password</string>
+    <!--END OF CHANGE PASSWORD SCREEN-->
+
+    <!--EDIT PROFILE SCREEN-->
+    <string name="edp_changep">Change Picture</string>
+    <!--END OF EDIT PROFILE SCREEN-->
+
+    <!--FEED SCREEN-->
+    <string name="f_allcom">View all comments</string>
+    <string name="f_suggested">Suggested Beauty Enthusiasts</string>
+    <string name="f_sugg_all">See All Suggestions</string>
+    <!--END OF FEED SCREEN-->
+
+    <!--DISCOVER SCREEN-->
+    <string name="dc_vid">Watch\nVideos you might like</string>
+    <string name="dc_reviews">See Review</string>
+    <!--END OF DISCOVER SCREEN-->
+
+    <!--ADD SCREEN-->
+    <string name="add_post">Post Product</string>
+    <string name="add_pho">Photo Library</string>
+    <string name="add_next">Next</string>
+    <!--END OF ADD SCREEN-->
+
+    <!--SHARE SCREEN-->
+    <string name="share">Share</string>
+    <string name="sh_caption">Write an caption...</string>
+    <string name="sh_tag">Tag Product</string>
+    <string name="sh_addrev">Add Review</string>
+    <string name="sh_to">Share to</string>
+    <!--END OF SHARE SCREEN-->
+
+    <!--ADD REVIEW SCREEN-->
+    <string name="adrev_your">Your Review</string>
+    <string name="adrev_pname">Product Name</string>
+    <string name="adrev_pbrand">Product Brand</string>
+    <string name="adrev_enter">Enter...</string>
+    <string name="adrev_ov">Overall rating</string>
+    <string name="adrev_ppac">Package quality</string>
+    <string name="adrev_maybe">Maybe</string>
+    <string name="adrev_wr">Write about it</string>
+    <string name="adrev_wou">Would you repurchase?</string>
+    <string name="adrev_tip">Tip: A good review includes your experience while using the product, whether it was effective or not, how long did it last, etc.</string>
+    <string name="adrev_char">characters</string>
+    <!--END OF ADD REVIEW SCREEN-->
+
+    <!--TAG PRODUCT SCREEN-->
+    <string name="tg_search">Search for a product or a brand..</string>
+    <!--END OF TAG PRODUCT SCREEN-->
+
+    <!--GENERAL-->
+    <string name="username">Username</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="done">Done</string>
+    <string name="skip">Skip</string>
+    <string name="feed">Feed</string>
+    <string name="profile">Profile</string>
+    <string name="comments">Comments</string>
+    <string name="post">Post</string>
+    <string name="setting">Settings</string>
+    <string name="push_notif">Push Notifications</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="instagram">Instagram</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="pinterest">Pinterest</string>
+    <string name="cancel">Cancel</string>
+    <string name="reviews">Reviews</string>
+    <string name="all">All</string>
+    <string name="people">People</string>
+    <string name="tags">Tags</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <!--END OF GENERAL-->
+
+
+
 </resources>

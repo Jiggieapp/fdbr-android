@@ -56,16 +56,16 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
 
     @OnClick(R.id.btnLogin)
     public void onLoginClick() {
-        /*HashMap<String, Object> postLoginModel = new HashMap<>();
+        HashMap<String, Object> postLoginModel = new HashMap<>();
         postLoginModel.put("username", "jjjsss1212123456");
         postLoginModel.put("password", "Admin123!");
 
         String sd = String.valueOf(new Gson().toJson(postLoginModel));
         Log.d("sd","sd");
 
-        loginImplementation.login(Constant.URL_LOGIN, postLoginModel);*/
+        loginImplementation.login(Constant.URL_LOGIN, postLoginModel);
 
-        HashMap<String, Object> postRegisterModel = new HashMap<>();
+        /*HashMap<String, Object> postRegisterModel = new HashMap<>();
         postRegisterModel.put("username", "kukukurata");
         postRegisterModel.put("password", "kukukurata");
         postRegisterModel.put("email", "torontoojan@gmail.com!");
@@ -73,7 +73,7 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
         String sd = String.valueOf(new Gson().toJson(postRegisterModel));
         Log.d("sd","sd");
 
-        registerImplementation.register(Constant.URL_REGISTER, postRegisterModel);
+        registerImplementation.register(Constant.URL_REGISTER, postRegisterModel);*/
     }
 
     @Override
@@ -93,8 +93,8 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
         String sd = String.valueOf(new Gson().toJson(loginModel));
         Log.d("sd","sd");
 
-        saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
-        implementation.verifyToken();
+        /*saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
+        implementation.verifyToken();*/
     }
 
     @Override

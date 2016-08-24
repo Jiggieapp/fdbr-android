@@ -58,6 +58,7 @@ public final class LoginModel {
         }
 
         public static final class Rows {
+            public final long id;
             public final String fullname;
             public final String username;
             public final String email;
@@ -80,7 +81,8 @@ public final class LoginModel {
             public final Beauty_concern beauty_concern;
             public final ArrayList<Brand> brands;
 
-            public Rows(String fullname, String username, String email, Birthday birthday, String join_date, String about, long follower_count, long following_count, long total_point, long total_badge, long total_review, String bio, String facebook, String twitter, String instagram, String youtube, String blog, Picture picture, Beauty_profile beauty_profile, Beauty_concern beauty_concern, ArrayList<Brand> brands){
+            public Rows(long id, String fullname, String username, String email, Birthday birthday, String join_date, String about, long follower_count, long following_count, long total_point, long total_badge, long total_review, String bio, String facebook, String twitter, String instagram, String youtube, String blog, Picture picture, Beauty_profile beauty_profile, Beauty_concern beauty_concern, ArrayList<Brand> brands){
+                this.id = id;
                 this.fullname = fullname;
                 this.username = username;
                 this.email = email;
@@ -102,6 +104,10 @@ public final class LoginModel {
                 this.beauty_profile = beauty_profile;
                 this.beauty_concern = beauty_concern;
                 this.brands = brands;
+            }
+
+            public long getId() {
+                return id;
             }
 
             public String getFullname() {
@@ -192,6 +198,8 @@ public final class LoginModel {
 
                 public Birthday(){
                 }
+
+
             }
 
             public static final class Picture {
