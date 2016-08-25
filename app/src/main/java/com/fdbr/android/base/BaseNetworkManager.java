@@ -101,6 +101,7 @@ public abstract class BaseNetworkManager implements Interceptor {
                 .addHeader("version", Constant.API_VERSION)
                 .addHeader("device", Constant.DEVICE_TYPE)
                 .addHeader("authorization", App.getInstance().getFromPreference(Constant.ACCESS_TOKEN_PREF))
+                //.addHeader("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoiMS4wIiwiZGV2aWNlIjoiMiIsImtleSI6ImNsaWVudDAyLUlibm5qc2FkYm91Mjg5NDgxODhiQUd3amZrc2RoaWJ2am9vd2Vmb2J2aGNqN0ZEQmJoaGpkc2Y4OTI4Mzg0NzcxOGhoZkhJREhGS0hTRktTaGgiLCJwb3N0Ijp7InVzZXJuYW1lIjoiaWJ1a290YSIsInBhc3N3b3JkIjoiaWJ1aWJ1IiwiZW1haWwiOiJpYnVrb3RhQGZlbWFsZWRhaWx5LmNvbSJ9LCJpYXQiOjE0NzIxMTQ3OTQsImV4cCI6MTQ3MjEyMTk5NH0.iVQ99PAy0BrGNYgvg5_U8_Crd1xDRhkP1VLcQiBK3G4")
                 .build();
         return request;
     }

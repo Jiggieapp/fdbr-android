@@ -62,16 +62,18 @@ public class SignUpActivity extends BaseActivity implements AccountView.Register
         String email = edtEmail.getText().toString();
 
         boolean isUsernameValid = Utils.validasiInput(Constant.TYPE_USERNAME, username);
-        boolean isPasswordValid = Utils.validasiInput(Constant.TYPE_PASSWORD, username);
-        boolean isEmailValid = Utils.validasiInput(Constant.TYPE_EMAIL, username);
+        boolean isPasswordValid = Utils.validasiInput(Constant.TYPE_PASSWORD, password);
+        boolean isEmailValid = Utils.validasiInput(Constant.TYPE_EMAIL, email);
 
         if(!isUsernameValid){
             Utils.showToast(SignUpActivity.this, Utils.getStringResource(SignUpActivity.this, R.string.inval_username));
         }else if(!isPasswordValid){
             Utils.showToast(SignUpActivity.this, Utils.getStringResource(SignUpActivity.this, R.string.inval_password));
-        }else if(!isEmailValid){
+        }
+        /*else if(!isEmailValid){
             Utils.showToast(SignUpActivity.this, Utils.getStringResource(SignUpActivity.this, R.string.inval_email));
-        }else{
+        }*/
+        else{
             HashMap<String, Object> postRegisterModel = new HashMap<>();
             postRegisterModel.put("username", username);
             postRegisterModel.put("password", password);
@@ -94,6 +96,8 @@ public class SignUpActivity extends BaseActivity implements AccountView.Register
     public void register(RegisterModel registerModel) {
         String sd = String.valueOf(new Gson().toJson(registerModel));
         Log.d("sd","sd");
+
+        saveToPreference(Constant.ACCESS_TOKEN_PREF, registerModel.getData().getToken());
     }
 
     @Override

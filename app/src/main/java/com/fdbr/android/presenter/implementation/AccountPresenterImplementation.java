@@ -90,7 +90,7 @@ public class AccountPresenterImplementation  {
         private AccountView.RegisterView registerView;
         private Subscription subscription;
         private static AccountAPI accountAPI;
-        private final String TAG = AccountPresenterImplementation.LoginPresenterImplementation.class.getSimpleName();
+        private final String TAG = AccountPresenterImplementation.RegisterPresenterImplementation.class.getSimpleName();
 
         @Override
         public void onAttachView(AccountView.RegisterView view) {
