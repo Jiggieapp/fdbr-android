@@ -21,4 +21,11 @@ public class Constant {
     public static final String ACCESS_TOKEN_PREF = "access_token";
 
     //status code
+
+    public static final String USERNAME_PATTERN = "^[a-z0-9_-]{3,15}$";
+    public static final String EMAIL_PATTERN = "^[A-Za-z][A-Za-z0-9]*([._-]?[A-Za-z0-9]+)@[A-Za-z].[A-Za-z]{0,3}?.[A-Za-z]{0,2}$";
+
+    public static final int TYPE_USERNAME = 1;
+    public static final int TYPE_PASSWORD = 2;
+    public static final int TYPE_EMAIL = 3;
 }
