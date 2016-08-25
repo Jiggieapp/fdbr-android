@@ -42,6 +42,10 @@ public class ProfileView {
     public interface TriedView{
         void getTried(TriedModel triedModel);
     }
+
+    public interface PredefinedView{
+        void preDefined();
+    }
     //------------------------
 
 }
