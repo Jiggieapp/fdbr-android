@@ -1,5 +1,6 @@
 package com.fdbr.android.api;
 
+import com.fdbr.android.model.FeedProfileModel;
 import com.fdbr.android.model.ProfileModel;
 import com.fdbr.android.model.TriedModel;
 import com.fdbr.android.model.WishlistModel;
@@ -26,5 +27,8 @@ public interface ProfileAPI {
 
     @GET(Constant.URL_TRIED)
     Observable<Response<TriedModel>> getTried(@Path("user_id") String id, @QueryMap HashMap<String, Object> query);
+
+    @GET(Constant.URL_FEED_PROFILE)
+    Observable<Response<FeedProfileModel>> getFeedProfile(@Path("user_id") String id, @QueryMap HashMap<String, Object> query);
 
 }

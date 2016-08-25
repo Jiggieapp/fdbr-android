@@ -18,6 +18,7 @@ public class Constant {
     public static final String URL_PROFILE = BASE_URL + "user/profile/{user_id}";
     public static final String URL_WISHLIST = BASE_URL + "user/wishlist/{user_id}";
     public static final String URL_TRIED = BASE_URL + "user/tried/{user_id}";
+    public static final String URL_FEED_PROFILE = BASE_URL + "user/feed/{user_id}";
 
     //pref
     public static final String ACCESS_TOKEN_PREF = "access_token";

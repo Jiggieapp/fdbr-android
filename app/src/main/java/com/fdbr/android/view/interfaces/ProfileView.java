@@ -1,5 +1,6 @@
 package com.fdbr.android.view.interfaces;
 
+import com.fdbr.android.model.FeedProfileModel;
 import com.fdbr.android.model.ProfileModel;
 import com.fdbr.android.model.TriedModel;
 import com.fdbr.android.model.WishlistModel;
@@ -26,8 +27,8 @@ public class ProfileView {
     }
 
     //jaga-jaga klo nanti data-nya dipisah dengan detailprofile-----
-    public interface FeedView{
-        void getFeed();
+    public interface FeedProfileView{
+        void getFeedProfile(FeedProfileModel feedProfileModel);
     }
 
     public interface ProfileProfileView{

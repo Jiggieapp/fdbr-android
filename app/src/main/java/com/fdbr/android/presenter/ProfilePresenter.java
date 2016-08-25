@@ -21,4 +21,8 @@ public class ProfilePresenter {
         void tried(String userId, HashMap<String, Object> query);
     }
 
+    public interface FeedProfilePresenter extends BasePresenter<ProfileView.FeedProfileView>{
+        void feedProfile(String userId, HashMap<String, Object> query);
+    }
+
 }

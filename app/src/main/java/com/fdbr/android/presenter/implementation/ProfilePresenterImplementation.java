@@ -2,6 +2,7 @@ package com.fdbr.android.presenter.implementation;
 
 import com.fdbr.android.api.ProfileAPI;
 import com.fdbr.android.base.BaseNetworkManager;
+import com.fdbr.android.model.FeedProfileModel;
 import com.fdbr.android.model.ProfileModel;
 import com.fdbr.android.model.TriedModel;
 import com.fdbr.android.model.WishlistModel;
@@ -181,6 +182,64 @@ public class ProfilePresenterImplementation {
                                 //content empty
                             }else{
                                 triedView.getTried(response.body());
+                            }
+
+
+                        }
+                    });
+        }
+
+        private static ProfileAPI getInstance()
+        {
+            if(profileAPI == null)
+                profileAPI = getRetrofit().create(ProfileAPI.class);
+            return profileAPI;
+        }
+    }
+
+    public static class FeedProfilePresenterImplementation extends BaseNetworkManager implements ProfilePresenter.FeedProfilePresenter{
+
+        private ProfileView.FeedProfileView feedProfileView;
+        private Subscription subscription;
+        private static ProfileAPI profileAPI;
+        private final String TAG = ProfilePresenterImplementation.FeedProfilePresenterImplementation.class.getSimpleName();
+
+        @Override
+        public void onAttachView(ProfileView.FeedProfileView view) {
+            this.feedProfileView = view;
+        }
+
+        @Override
+        public void onUnattachView() {
+            profileAPI = null;
+            subscription.unsubscribe();
+        }
+
+        @Override
+        public void feedProfile(String userId, HashMap<String, Object> query) {
+            subscription = getInstance()
+                    .getFeedProfile(userId, query)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(new Subscriber<Response<FeedProfileModel>>() {
+                        @Override
+                        public void onCompleted() {
+                            Utils.d(TAG, "");
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            Utils.d(TAG, e.toString());
+                        }
+
+                        @Override
+                        public void onNext(Response<FeedProfileModel> response) {
+                            int code = response.code();
+                            Utils.d(TAG, String.valueOf(code));
+                            if(code==204){
+                                //content empty
+                            }else{
+                                feedProfileView.getFeedProfile(response.body());
                             }
 
 
