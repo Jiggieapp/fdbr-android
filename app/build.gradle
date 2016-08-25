@@ -86,7 +86,9 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.1.0'
     //rxandroid
     compile 'io.reactivex:rxjava:1.1.0'
-    //rxandroid
+
+    compile 'com.android.support:design:23.2.1'
+
     compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
         transitive = true;
     }
