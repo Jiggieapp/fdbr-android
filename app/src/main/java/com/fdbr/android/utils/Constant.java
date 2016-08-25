@@ -15,10 +15,26 @@ public class Constant {
 
     public static final String URL_REGISTER = BASE_URL + "register";
     public static final String URL_LOGIN = BASE_URL + "login";
-    public static final String URL_PROFILE = BASE_URL + "user/profile/{id}";
+    public static final String URL_PROFILE = BASE_URL + "user/profile/{user_id}";
+    public static final String URL_WISHLIST = BASE_URL + "user/wishlist/{user_id}";
+    public static final String URL_TRIED = BASE_URL + "user/tried/{user_id}";
+    public static final String URL_FEED_PROFILE = BASE_URL + "user/feed/{user_id}";
+    public static final String URL_BRAND = BASE_URL + "user/brand";
 
     //pref
     public static final String ACCESS_TOKEN_PREF = "access_token";
 
     //status code
+
+    public static final String USERNAME_PATTERN = "^[a-z0-9_-]{3,15}$";
+    public static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})$";
+
+    //
+    //^[A-Za-z][A-Za-z0-9]*([._-]?[A-Za-z0-9]+)@[A-Za-z].[A-Za-z]{0,3}?.[A-Za-z]{0,2}$
+
+    public static final int TYPE_USERNAME = 1;
+    public static final int TYPE_PASSWORD = 2;
+    public static final int TYPE_EMAIL = 3;
+
+    public static String BLANK = "";
 }

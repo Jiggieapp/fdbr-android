@@ -41,10 +41,12 @@ public final class RegisterModel {
     public static final class Data {
         public final boolean success;
         public final String token;
+        public final long userid;
 
-        public Data(boolean success, String token){
+        public Data(boolean success, String token, long userid){
             this.success = success;
             this.token = token;
+            this.userid = userid;
         }
 
         public boolean isSuccess() {
@@ -53,6 +55,10 @@ public final class RegisterModel {
 
         public String getToken() {
             return token;
+        }
+
+        public long getUserid() {
+            return userid;
         }
     }
 }

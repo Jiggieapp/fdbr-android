@@ -2,20 +2,23 @@ package com.fdbr.android.view.activity;
 
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.fdbr.android.R;
 import com.fdbr.android.base.BaseActivity;
 import com.fdbr.android.model.AccessToken;
 import com.fdbr.android.model.LoginModel;
-import com.fdbr.android.model.RegisterModel;
 import com.fdbr.android.presenter.implementation.AccessTokenPresenterImplementation;
 import com.fdbr.android.presenter.implementation.AccountPresenterImplementation;
 import com.fdbr.android.utils.Constant;
+import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.interfaces.AccessTokenView;
 import com.fdbr.android.view.interfaces.AccountView;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -23,16 +26,19 @@ import butterknife.OnClick;
 /**
  * Created by LTE on 8/15/2016.
  */
-public class LoginActivity extends BaseActivity implements AccessTokenView, AccountView.LoginView, AccountView.RegisterView {
+public class LoginActivity extends BaseActivity implements AccessTokenView, AccountView.LoginView {
 
     @BindView(R.id.btnLogin)
     Button btnLogin;
+    @BindView(R.id.edt_username)
+    EditText edtUsername;
+    @BindView(R.id.edt_password)
+    EditText edtPassword;
 
     private AccessTokenPresenterImplementation implementation;
     private final String TAG = LoginActivity.class.getSimpleName();
 
     private AccountPresenterImplementation.LoginPresenterImplementation loginImplementation;
-    private AccountPresenterImplementation.RegisterPresenterImplementation registerImplementation;
 
     public void getAccessToken(AccessToken accessToken) {
         //getSharedPreferences().edit().putString(Constant.ANDROID_KEY, accessToken.token).commit();
@@ -49,31 +55,28 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
         loginImplementation = new AccountPresenterImplementation.LoginPresenterImplementation();
         loginImplementation.onAttachView(this);
 
-        registerImplementation = new AccountPresenterImplementation.RegisterPresenterImplementation();
-        registerImplementation.onAttachView(this);
-
     }
 
     @OnClick(R.id.btnLogin)
     public void onLoginClick() {
-        HashMap<String, Object> postLoginModel = new HashMap<>();
-        postLoginModel.put("username", "jjjsss1212123456");
-        postLoginModel.put("password", "Admin123!");
 
-        String sd = String.valueOf(new Gson().toJson(postLoginModel));
-        Log.d("sd","sd");
+        String username = edtUsername.getText().toString();
+        String password = edtPassword.getText().toString();
 
-        loginImplementation.login(Constant.URL_LOGIN, postLoginModel);
+        boolean isPasswordValid = Utils.validasiInput(Constant.TYPE_PASSWORD, username);
 
-        /*HashMap<String, Object> postRegisterModel = new HashMap<>();
-        postRegisterModel.put("username", "kukukurata");
-        postRegisterModel.put("password", "kukukurata");
-        postRegisterModel.put("email", "torontoojan@gmail.com!");
+        if(!isPasswordValid){
+            Utils.showToast(LoginActivity.this, Utils.getStringResource(LoginActivity.this, R.string.inval_password));
+        }else{
+            HashMap<String, Object> postLoginModel = new HashMap<>();
+            postLoginModel.put("username", username);
+            postLoginModel.put("password", password);
 
-        String sd = String.valueOf(new Gson().toJson(postRegisterModel));
-        Log.d("sd","sd");
+            String sd = String.valueOf(new Gson().toJson(postLoginModel));
+            Log.d("sd", "sd");
 
-        registerImplementation.register(Constant.URL_REGISTER, postRegisterModel);*/
+            loginImplementation.login(Constant.URL_LOGIN, postLoginModel);
+        }
     }
 
     @Override
@@ -91,15 +94,10 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
     public void login(LoginModel loginModel) {
 
         String sd = String.valueOf(new Gson().toJson(loginModel));
-        Log.d("sd","sd");
+        Log.d("sd", "sd");
 
         /*saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
         implementation.verifyToken();*/
     }
 
-    @Override
-    public void register(RegisterModel registerModel) {
-        String sd = String.valueOf(new Gson().toJson(registerModel));
-        Log.d("sd","sd");
-    }
 }

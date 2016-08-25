@@ -39,7 +39,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        buildConfigField("String", "BASE_URL", "\"http://52.76.229.117/app/v1/\"")
+        buildConfigField("String", "BASE_URL", "\"http://api-dev.femaledaily.net/app/v1/\"")
     }
     buildTypes {
         release {
@@ -53,7 +53,7 @@ android {
             applicationIdSuffix '.debug'
             versionNameSuffix '-Dev'
             resValue "string", "app_name", "Female Daily Dev"
-            buildConfigField("String", "BASE_URL", "\"http://52.76.229.117/app/v1/\"")
+            buildConfigField("String", "BASE_URL", "\"http://api-dev.femaledaily.net/app/v1/\"")
         }
     }
 
@@ -86,7 +86,9 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.1.0'
     //rxandroid
     compile 'io.reactivex:rxjava:1.1.0'
-    //rxandroid
+
+    compile 'com.android.support:design:23.2.1'
+
     compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
         transitive = true;
     }

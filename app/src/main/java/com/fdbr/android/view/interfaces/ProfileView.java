@@ -1,6 +1,9 @@
 package com.fdbr.android.view.interfaces;
 
+import com.fdbr.android.model.FeedProfileModel;
 import com.fdbr.android.model.ProfileModel;
+import com.fdbr.android.model.TriedModel;
+import com.fdbr.android.model.WishlistModel;
 
 /**
  * Created by LTE on 8/23/2016.
@@ -8,7 +11,7 @@ import com.fdbr.android.model.ProfileModel;
 public class ProfileView {
 
     public interface DetailProfileView{
-        void detailProfile(ProfileModel loginModel);
+        void detailProfile(ProfileModel profileModel);
     }
 
     public interface FollowingView{
@@ -24,8 +27,8 @@ public class ProfileView {
     }
 
     //jaga-jaga klo nanti data-nya dipisah dengan detailprofile-----
-    public interface FeedView{
-        void getFeed();
+    public interface FeedProfileView{
+        void getFeedProfile(FeedProfileModel feedProfileModel);
     }
 
     public interface ProfileProfileView{
@@ -33,11 +36,15 @@ public class ProfileView {
     }
 
     public interface WishlistView{
-        void getWishlist();
+        void getWishlist(WishlistModel wishlistModel);
     }
 
     public interface TriedView{
-        void getTried();
+        void getTried(TriedModel triedModel);
+    }
+
+    public interface PredefinedView{
+        void preDefined();
     }
     //------------------------
 
