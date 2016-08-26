@@ -1,24 +1,45 @@
 package com.fdbr.android.view.activity;
 
-import android.preference.PreferenceManager;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 
-import com.fdbr.android.Constant;
 import com.fdbr.android.R;
-import com.fdbr.android.api.response.AccessToken;
 import com.fdbr.android.base.BaseActivity;
-import com.fdbr.android.manager.AccessTokenPresenterImplementation;
+import com.fdbr.android.model.AccessToken;
+import com.fdbr.android.model.LoginModel;
+import com.fdbr.android.presenter.implementation.AccessTokenPresenterImplementation;
+import com.fdbr.android.presenter.implementation.AccountPresenterImplementation;
+import com.fdbr.android.utils.Constant;
 import com.fdbr.android.utils.Utils;
-import com.fdbr.android.view.AccessTokenView;
+import com.fdbr.android.view.interfaces.AccessTokenView;
+import com.fdbr.android.view.interfaces.AccountView;
+import com.google.gson.Gson;
+
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by LTE on 8/15/2016.
  */
-public class LoginActivity extends BaseActivity implements AccessTokenView{
+public class LoginActivity extends BaseActivity implements AccessTokenView, AccountView.LoginView {
+
+    @BindView(R.id.btnLogin)
+    Button btnLogin;
+    @BindView(R.id.edt_username)
+    EditText edtUsername;
+    @BindView(R.id.edt_password)
+    EditText edtPassword;
 
     private AccessTokenPresenterImplementation implementation;
     private final String TAG = LoginActivity.class.getSimpleName();
 
-    @Override
+    private AccountPresenterImplementation.LoginPresenterImplementation loginImplementation;
+
     public void getAccessToken(AccessToken accessToken) {
         //getSharedPreferences().edit().putString(Constant.ANDROID_KEY, accessToken.token).commit();
         saveToPreference(Constant.ACCESS_TOKEN_PREF, accessToken.token);
@@ -29,7 +50,33 @@ public class LoginActivity extends BaseActivity implements AccessTokenView{
     protected void onCreate() {
         implementation = new AccessTokenPresenterImplementation();
         implementation.onAttachView(this);
-        implementation.getAccessToken();
+        //implementation.getAccessToken();
+
+        loginImplementation = new AccountPresenterImplementation.LoginPresenterImplementation();
+        loginImplementation.onAttachView(this);
+
+    }
+
+    @OnClick(R.id.btnLogin)
+    public void onLoginClick() {
+
+        String username = edtUsername.getText().toString();
+        String password = edtPassword.getText().toString();
+
+        boolean isPasswordValid = Utils.validasiInput(Constant.TYPE_PASSWORD, username);
+
+        if(!isPasswordValid){
+            Utils.showToast(LoginActivity.this, Utils.getStringResource(LoginActivity.this, R.string.inval_password));
+        }else{
+            HashMap<String, Object> postLoginModel = new HashMap<>();
+            postLoginModel.put("username", username);
+            postLoginModel.put("password", password);
+
+            String sd = String.valueOf(new Gson().toJson(postLoginModel));
+            Log.d("sd", "sd");
+
+            loginImplementation.login(Constant.URL_LOGIN, postLoginModel);
+        }
     }
 
     @Override
@@ -42,4 +89,15 @@ public class LoginActivity extends BaseActivity implements AccessTokenView{
     public int getContentView() {
         return R.layout.activity_login;
     }
+
+    @Override
+    public void login(LoginModel loginModel) {
+
+        String sd = String.valueOf(new Gson().toJson(loginModel));
+        Log.d("sd", "sd");
+
+        /*saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
+        implementation.verifyToken();*/
+    }
+
 }
