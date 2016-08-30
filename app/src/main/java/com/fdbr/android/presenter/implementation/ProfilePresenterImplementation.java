@@ -23,7 +23,22 @@ import rx.schedulers.Schedulers;
 /**
  * Created by LTE on 8/23/2016.
  */
-public class ProfilePresenterImplementation {
+public class ProfilePresenterImplementation /*implements ProfilePresenter.OnFollowListener<ProfileView.OnFollow>*/{
+
+    /*@Override
+    public void follow(String userId, String userToFollowId) {
+
+    }
+
+    @Override
+    public void onAttachView(ProfileView.OnFollow view) {
+
+    }
+
+    @Override
+    public void onUnattachView() {
+
+    }*/
 
     public static class DetailProfilePresenterImplementation extends BaseNetworkManager
             implements ProfilePresenter.DetailProfilePresenter{

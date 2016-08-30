@@ -25,7 +25,7 @@ public class ProfilePresenter {
         void feedProfile(String userId, HashMap<String, Object> query);
     }
 
-    public interface OnFollowListener<T> extends BasePresenter<T>
+    public interface OnFollowListener/*<T>*/ extends BasePresenter<ProfileView.OnFollow>
     {
         void follow(final String userId, final String userToFollowId);
     }
