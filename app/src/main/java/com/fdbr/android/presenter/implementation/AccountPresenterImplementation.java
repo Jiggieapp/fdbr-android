@@ -104,7 +104,7 @@ public class AccountPresenterImplementation  {
         }
 
         @Override
-        public void register(String url, HashMap<String, Object> postRegisterModel) {
+        public void register(final String url, final HashMap<String, Object> postRegisterModel) {
             subscription = getInstanceForToken()
                     .postRegister(url, postRegisterModel)
                     .observeOn(AndroidSchedulers.mainThread())
