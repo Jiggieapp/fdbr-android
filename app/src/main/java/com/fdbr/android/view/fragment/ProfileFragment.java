@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.fdbr.android.R;
 import com.fdbr.android.model.ProfileModel;
 import com.fdbr.android.presenter.implementation.ProfilePresenterImplementation;
+import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.interfaces.ProfileView;
 import com.google.gson.Gson;
 
@@ -38,7 +39,7 @@ public class ProfileFragment extends Fragment implements ProfileView.DetailProfi
     @Override
     public void detailProfile(ProfileModel profileModel) {
         String sd = String.valueOf(new Gson().toJson(profileModel));
-        Log.d("sd","sd");
+        Utils.d("sd","sd");
     }
 
     @Override

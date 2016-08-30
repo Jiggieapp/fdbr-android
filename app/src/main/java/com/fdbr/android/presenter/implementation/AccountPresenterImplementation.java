@@ -1,6 +1,7 @@
 package com.fdbr.android.presenter.implementation;
 
 import com.fdbr.android.api.AccountAPI;
+import com.fdbr.android.api.BaseResponse;
 import com.fdbr.android.base.BaseNetworkManager;
 import com.fdbr.android.model.LoginModel;
 import com.fdbr.android.model.RegisterModel;
@@ -45,7 +46,7 @@ public class AccountPresenterImplementation  {
                     .postLogin(url, postLoginModel)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
-                    .subscribe(new Subscriber<Response<LoginModel>>() {
+                    /*.subscribe(new Subscriber<Response<LoginModel>>() {
                         @Override
                         public void onCompleted() {
                             Utils.d(TAG, "");
@@ -65,10 +66,25 @@ public class AccountPresenterImplementation  {
                             }else{
                                 loginView.login(response.body());
                             }
-
-
                         }
-                    });
+                    })*/
+            .subscribe(new BaseResponse<LoginModel>() {
+                @Override
+                public void onError() {
+
+                }
+
+                @Override
+                public void doOnNext(LoginModel loginModel) {
+                    Utils.d(TAG, "loginmodel " + loginModel.getData().getToken());
+                    loginView.login(loginModel);
+                }
+
+                @Override
+                public void onCompleted() {
+
+                }
+            });
         }
 
         private static AccountAPI getInstanceForToken()
@@ -90,7 +106,7 @@ public class AccountPresenterImplementation  {
         private AccountView.RegisterView registerView;
         private Subscription subscription;
         private static AccountAPI accountAPI;
-        private final String TAG = AccountPresenterImplementation.RegisterPresenterImplementation.class.getSimpleName();
+        private final String TAG = AccountPresenterImplementation./*RegisterPresenterImplementation.*/class.getSimpleName();
 
         @Override
         public void onAttachView(AccountView.RegisterView view) {
@@ -104,7 +120,7 @@ public class AccountPresenterImplementation  {
         }
 
         @Override
-        public void register(String url, HashMap<String, Object> postRegisterModel) {
+        public void register(String url, final HashMap<String, Object> postRegisterModel) {
             subscription = getInstanceForToken()
                     .postRegister(url, postRegisterModel)
                     .observeOn(AndroidSchedulers.mainThread())
@@ -112,7 +128,7 @@ public class AccountPresenterImplementation  {
                     .subscribe(new Subscriber<Response<RegisterModel>>() {
                         @Override
                         public void onCompleted() {
-                            Utils.d(TAG, "");
+                            Utils.d(TAG, "complete");
                         }
 
                         @Override

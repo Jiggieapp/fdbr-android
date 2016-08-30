@@ -4,6 +4,7 @@ import com.fdbr.android.utils.Constant;
 import com.fdbr.android.model.AccessToken;
 import com.fdbr.android.model.Success;
 
+import retrofit2.Response;
 import retrofit2.http.GET;
 import rx.Observable;
 
@@ -13,8 +14,8 @@ import rx.Observable;
 public interface AccessTokenAPI {
 
     @GET(Constant.ACCESS_TOKEN_URL)
-    Observable<AccessToken> getAccessToken();
+    Observable<Response<AccessToken>> getAccessToken();
 
     @GET(Constant.VERIFY_ACCESS_TOKEN_URL)
-    Observable<Success> verifyAccessToken();
+    Observable<Response<Success>> verifyAccessToken();
 }

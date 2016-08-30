@@ -1,6 +1,7 @@
 package com.fdbr.android.presenter.implementation;
 
 import com.fdbr.android.api.AccessTokenAPI;
+import com.fdbr.android.api.BaseResponse;
 import com.fdbr.android.base.BaseNetworkManager;
 import com.fdbr.android.presenter.AccessTokenPresenter;
 import com.fdbr.android.model.AccessToken;
@@ -8,6 +9,7 @@ import com.fdbr.android.model.Success;
 import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.interfaces.AccessTokenView;
 
+import retrofit2.Response;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -29,7 +31,7 @@ public class AccessTokenPresenterImplementation extends BaseNetworkManager imple
                 .getAccessToken()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<AccessToken>() {
+                /*.subscribe(new Subscriber<Response<AccessToken>>() {
                     @Override
                     public void onCompleted() {
 
@@ -41,8 +43,26 @@ public class AccessTokenPresenterImplementation extends BaseNetworkManager imple
                     }
 
                     @Override
-                    public void onNext(AccessToken accessToken) {
+                    public void onNext(Response<AccessToken> accessTokenResponse) {
+                        Utils.d(TAG, "token" + accessTokenResponse.body().token);
+                        accessTokenView.getAccessToken(accessTokenResponse.body());
+                    }
+                })*/
+                .subscribe(new BaseResponse<AccessToken>() {
+                    @Override
+                    public void onError() {
+                        //Utils.d(TAG, e.toString());
+                    }
+
+                    @Override
+                    public void doOnNext(AccessToken accessToken) {
+                        Utils.d(TAG, "token" + accessToken.token);
                         accessTokenView.getAccessToken(accessToken);
+                    }
+
+                    @Override
+                    public void onCompleted() {
+
                     }
                 });
     }
@@ -52,7 +72,23 @@ public class AccessTokenPresenterImplementation extends BaseNetworkManager imple
         subscription = getInstance().verifyAccessToken()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<Success>() {
+                .subscribe(new Subscriber<Response<Success>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(Response<Success> successResponse) {
+
+                    }
+                })
+                /*.subscribe(new Subscriber<Success>() {
                     @Override
                     public void onCompleted() {
 
@@ -65,7 +101,7 @@ public class AccessTokenPresenterImplementation extends BaseNetworkManager imple
                     @Override
                     public void onNext(Success success) {
                     }
-                });
+                })*/;
     }
 
     @Override

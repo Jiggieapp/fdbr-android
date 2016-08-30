@@ -80,7 +80,7 @@ public class SignUpActivity extends BaseActivity implements AccountView.Register
             postRegisterModel.put("email", email);
 
             String sd = String.valueOf(new Gson().toJson(postRegisterModel));
-            Log.d("sd","sd");
+            //Log.d("sd","sd");
 
             registerImplementation.register(Constant.URL_REGISTER, postRegisterModel);
         }
@@ -95,7 +95,7 @@ public class SignUpActivity extends BaseActivity implements AccountView.Register
     @Override
     public void register(RegisterModel registerModel) {
         String sd = String.valueOf(new Gson().toJson(registerModel));
-        Log.d("sd","sd");
+        //Log.d("sd","sd");
 
         saveToPreference(Constant.ACCESS_TOKEN_PREF, registerModel.getData().getToken());
     }
