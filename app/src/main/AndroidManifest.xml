@@ -16,7 +16,7 @@
 
         </activity>
 
-        <activity android:name=".view.activity.WelcomeActivity"
+        <activity android:name=".view.fragment.ProfileFragment"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -31,6 +31,16 @@
         </activity>
 
         <activity android:name=".view.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+
+        <activity android:name=".view.activity.ChangePassActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+
+        <activity android:name=".view.activity.SignupDetailActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>

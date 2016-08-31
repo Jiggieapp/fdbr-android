@@ -15,10 +15,9 @@
     <!--SIGN UP SCREEN-->
     <string name="sgup">Sign Up</string>
     <string name="sgup_desc">Tell us a few details about yourself and we\'ll get you on your way.</string>
-    <string name="sgup_pp">Add your profile picture</string>
     <string name="sgup_agree">By signing up, your agree to our</string>
-    <string name="sgup_term">Terms of Service</string>
-    <string name="sgup_policy">Privacy Policy</string>
+    <string name="sgup_term"><u>Terms of Service</u></string>
+    <string name="sgup_policy"><u>Privacy Policy</u></string>
     <string name="sgup_n">\u0026</string>
     <string name="sgup_reg">Register</string>
     <!--END OF SIGN UP SCREEN-->
@@ -94,7 +93,6 @@
     <!--ADD SCREEN-->
     <string name="add_post">Post Product</string>
     <string name="add_pho">Photo Library</string>
-    <string name="add_next">Next</string>
     <!--END OF ADD SCREEN-->
 
     <!--SHARE SCREEN-->
@@ -129,6 +127,11 @@
     <string name="inval_password">Password format is invalid</string>
     <!--END OF ERROR MESSAGE-->
 
+    <!--SIGNUP DETAIL SCREEN-->
+    <string name="sgd_thx">Thanks! Let\'s setup your profile.</string>
+    <string name="sgd_dob">DOB</string>
+    <!--END OF SIGNUP DETAIL SCREEN-->
+
     <!--GENERAL-->
     <string name="username">Username</string>
     <string name="name">Name</string>
@@ -154,6 +157,12 @@
     <string name="tags">Tags</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="add_pp">Add your profile picture</string>
+    <string name="location">Location</string>
+    <string name="bio">Bio</string>
+    <string name="next">Next</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="tried">Tried</string>
     <!--END OF GENERAL-->
 
 
