@@ -16,8 +16,8 @@
 
         </activity>
 
-        <activity android:name=".view.activity.WelcomeActivity"
-
+        <activity android:name=".view.fragment.ProfileFragment"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

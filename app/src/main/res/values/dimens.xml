@@ -13,5 +13,7 @@
     <dimen name="font_small">12sp</dimen>
     <!--END OF FONT SIZE-->
 
+    <dimen name="default_elevation">8dp</dimen>
+
 
 </resources>
