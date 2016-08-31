@@ -2,6 +2,7 @@ package com.fdbr.android.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.MenuItem;
 
 /**
  * Created by Wandy on 8/16/2016.
@@ -14,6 +15,18 @@ public abstract class BaseActivity extends AbstractBaseActivity {
         setContentView(getContentView());
         super.bindView();
         onCreate();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                break;
+            default:
+                break;
+        }
+        return false;
     }
 
 

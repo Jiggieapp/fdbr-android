@@ -100,7 +100,10 @@ public class AccountPresenterImplementation  {
         @Override
         public void onUnattachView() {
             accountAPI = null;
-            subscription.unsubscribe();
+            if(subscription!=null&&!subscription.isUnsubscribed()){
+                subscription.unsubscribe();
+            }
+
         }
 
         @Override

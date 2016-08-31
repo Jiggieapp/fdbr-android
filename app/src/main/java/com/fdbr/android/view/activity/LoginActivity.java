@@ -1,8 +1,9 @@
 package com.fdbr.android.view.activity;
 
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
+import android.view.MenuItem;
+import android.widget.RelativeLayout;
 
 import com.fdbr.android.R;
 import com.fdbr.android.base.BaseActivity;
@@ -15,10 +16,9 @@ import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.interfaces.AccessTokenView;
 import com.fdbr.android.view.interfaces.AccountView;
 import com.google.gson.Gson;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -28,13 +28,13 @@ import butterknife.OnClick;
  */
 public class LoginActivity extends BaseActivity implements AccessTokenView, AccountView.LoginView {
 
-    @BindView(R.id.btnLogin)
-    Button btnLogin;
-    @BindView(R.id.edt_username)
-    EditText edtUsername;
-    @BindView(R.id.edt_password)
-    EditText edtPassword;
 
+    @BindView(R.id.edt_username)
+    MaterialEditText edtUsername;
+    @BindView(R.id.edt_password)
+    MaterialEditText edtPassword;
+    @BindView(R.id.rel_signin)
+    RelativeLayout relSignin;
     private AccessTokenPresenterImplementation implementation;
     private final String TAG = LoginActivity.class.getSimpleName();
 
@@ -48,6 +48,8 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
 
     @Override
     protected void onCreate() {
+        initView();
+
         implementation = new AccessTokenPresenterImplementation();
         implementation.onAttachView(this);
         //implementation.getAccessToken();
@@ -57,7 +59,12 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
 
     }
 
-    @OnClick(R.id.btnLogin)
+    private void initView(){
+        getSupportActionBar().setTitle(Utils.getStringResource(this, R.string.sgin));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @OnClick(R.id.rel_signin)
     public void onLoginClick() {
 
         String username = edtUsername.getText().toString();
@@ -65,9 +72,9 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
 
         boolean isPasswordValid = Utils.validasiInput(Constant.TYPE_PASSWORD, username);
 
-        if(!isPasswordValid){
+        if (!isPasswordValid) {
             Utils.showToast(LoginActivity.this, Utils.getStringResource(LoginActivity.this, R.string.inval_password));
-        }else{
+        } else {
             HashMap<String, Object> postLoginModel = new HashMap<>();
             postLoginModel.put("username", username);
             postLoginModel.put("password", password);
@@ -99,5 +106,6 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
         /*saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
         implementation.verifyToken();*/
     }
+
 
 }
