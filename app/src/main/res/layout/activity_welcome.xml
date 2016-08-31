@@ -5,18 +5,34 @@
 
     <TextView
         android:id="@+id/txt_login"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:text="@string/wl_login"/>
+        android:text="@string/wl_login"
+        android:textSize="@dimen/font_standar"
+        android:textColor="@color/colorBlack"
+        android:layout_margin="@dimen/padding"/>
 
-    <Button
-        android:id="@+id/btn_signup"
+    <RelativeLayout
+        android:id="@+id/rel_signup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/wl_sign_up"
-        android:layout_above="@id/txt_login"/>
+        android:layout_height="?attr/actionBarSize"
+        android:layout_above="@id/txt_login"
+        android:layout_marginTop="@dimen/padding"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:background="@color/colorGrey">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/wl_sign_up"
+            android:textSize="@dimen/font_standar"
+            android:textColor="@color/colorWhite"/>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/txt_or"
@@ -24,7 +40,29 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/wl_or"
-        android:layout_above="@id/btn_signup"/>
+        android:layout_above="@id/rel_signup"
+        android:textColor="@color/colorGrey"
+        android:layout_marginTop="@dimen/padding"/>
+
+    <RelativeLayout
+        android:id="@+id/rel_fb"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_above="@id/txt_or"
+        android:layout_marginTop="@dimen/padding"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:background="@color/colorGrey">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Continue with Facebook"
+            android:textSize="@dimen/font_standar"
+            android:textColor="@color/colorWhite"/>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

@@ -1,27 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edt_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/username"
-        android:layout_alignParentTop="true"/>
+        android:inputType="textEmailAddress"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorBlack"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/font_standar"
+        android:layout_margin="@dimen/padding"
+        android:singleLine="true"/>
 
-    <EditText
+
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/username"
-        android:layout_below="@id/edt_username"/>
+        android:hint="@string/pass"
+        android:inputType="textPassword"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorBlack"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_below="@id/edt_username"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:singleLine="true"
+        />
 
-    <Button
-        android:id="@+id/btnLogin"
+
+    <RelativeLayout
+        android:id="@+id/rel_signin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="login"
-        android:layout_alignParentBottom="true"/>
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGrey"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/sgin"
+            android:textSize="@dimen/font_standar"
+            android:textColor="@color/colorWhite"/>
+
+    </RelativeLayout>
+
+
 
 </RelativeLayout>

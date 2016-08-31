@@ -1,83 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/txt_desc"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/sgup_desc"/>
+        android:text="@string/sgup_desc"
+        android:textSize="@dimen/font_standar"
+        android:layout_margin="@dimen/padding"
+        android:textAlignment="center"/>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorBlack"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
         android:layout_below="@id/txt_desc"
-        android:hint="@string/email"/>
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:singleLine="true"/>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edt_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/username"
+        android:inputType="textEmailAddress"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorBlack"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
         android:layout_below="@id/edt_email"
-        android:hint="@string/username"/>
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:singleLine="true"/>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edt_username"
         android:hint="@string/pass"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorBlack"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_below="@id/edt_username"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:singleLine="true"/>
 
-    <Button
-        android:id="@+id/btn_register"
+    <RelativeLayout
+        android:id="@+id/rel_register"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sgup_reg"
+        android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        />
+        android:background="@color/colorGrey"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/sgup_reg"
+            android:textSize="@dimen/font_standar"
+            android:textColor="@color/colorWhite"/>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rel_term"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/btn_register"
-        android:layout_centerHorizontal="true">
+        android:layout_above="@id/rel_register"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding">
 
         <TextView
             android:id="@+id/txt_and"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@string/sgup_n"/>
+            android:text="@string/sgup_n"
+            android:textSize="@dimen/font_small"/>
 
         <TextView
             android:id="@+id/txt_term"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/txt_and"
-            android:text="@string/sgup_term"/>
+            android:text="@string/sgup_term"
+            android:textSize="@dimen/font_small"
+            android:layout_marginRight="@dimen/padding_half"/>
 
         <TextView
             android:id="@+id/txt_policy"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/txt_and"
             android:text="@string/sgup_policy"
+            android:textSize="@dimen/font_small"
+            android:layout_marginLeft="@dimen/padding_half"
             />
 
     </RelativeLayout>
 
     <TextView
         android:id="@+id/txt_agree"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/rel_term"
         android:layout_centerHorizontal="true"
-        android:text="@string/sgup_agree"/>
+        android:text="@string/sgup_agree"
+        android:textSize="@dimen/font_small"
+        android:layout_marginBottom="@dimen/padding_half"/>
 
 </RelativeLayout>

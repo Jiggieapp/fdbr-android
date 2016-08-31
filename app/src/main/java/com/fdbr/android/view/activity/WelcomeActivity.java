@@ -1,7 +1,7 @@
 package com.fdbr.android.view.activity;
 
 import android.content.Intent;
-import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.fdbr.android.R;
@@ -17,15 +17,17 @@ public class WelcomeActivity extends BaseActivity {
 
     @BindView(R.id.txt_login)
     TextView txtLogin;
-    @BindView(R.id.btn_signup)
-    Button btnSignup;
+    @BindView(R.id.rel_signup)
+    RelativeLayout relSignup;
+    @BindView(R.id.rel_fb)
+    RelativeLayout relFb;
 
     @Override
     protected void onCreate() {
 
     }
 
-    @OnClick(R.id.btn_signup)
+    @OnClick(R.id.rel_signup)
     public void onSignupClick() {
         startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
     }

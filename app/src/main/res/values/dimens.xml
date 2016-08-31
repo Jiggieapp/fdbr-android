@@ -9,7 +9,8 @@
 
     <!--FONT SIZE-->
     <dimen name="font_tabindicator">8sp</dimen>
-
+    <dimen name="font_standar">16sp</dimen>
+    <dimen name="font_small">12sp</dimen>
     <!--END OF FONT SIZE-->
 
 

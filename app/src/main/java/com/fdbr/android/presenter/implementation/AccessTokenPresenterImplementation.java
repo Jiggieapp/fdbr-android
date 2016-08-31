@@ -76,7 +76,11 @@ public class AccessTokenPresenterImplementation extends BaseNetworkManager imple
     @Override
     public void onUnattachView() {
         accessTokenAPI = null;
-        subscription.unsubscribe();
+
+        if(subscription!=null&&!subscription.isUnsubscribed()){
+            subscription.unsubscribe();
+        }
+
     }
 
     private static AccessTokenAPI getInstanceForToken()

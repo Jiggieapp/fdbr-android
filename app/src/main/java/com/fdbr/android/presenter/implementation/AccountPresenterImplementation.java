@@ -100,11 +100,14 @@ public class AccountPresenterImplementation  {
         @Override
         public void onUnattachView() {
             accountAPI = null;
-            subscription.unsubscribe();
+            if(subscription!=null&&!subscription.isUnsubscribed()){
+                subscription.unsubscribe();
+            }
+
         }
 
         @Override
-        public void register(String url, HashMap<String, Object> postRegisterModel) {
+        public void register(final String url, final HashMap<String, Object> postRegisterModel) {
             subscription = getInstanceForToken()
                     .postRegister(url, postRegisterModel)
                     .observeOn(AndroidSchedulers.mainThread())
