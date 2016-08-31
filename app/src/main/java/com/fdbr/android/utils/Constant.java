@@ -20,6 +20,7 @@ public class Constant {
     public static final String URL_TRIED = BASE_URL + "user/tried/{user_id}";
     public static final String URL_FEED_PROFILE = BASE_URL + "user/feed/{user_id}";
     public static final String URL_BRAND = BASE_URL + "user/brand";
+    public static final String URL_FOLLOW = BASE_URL + "follow";
 
     //pref
     public static final String ACCESS_TOKEN_PREF = "access_token";
@@ -37,4 +38,18 @@ public class Constant {
     public static final int TYPE_EMAIL = 3;
 
     public static String BLANK = "";
+
+    /*200 => OK
+    401 => Token Mismatch
+    410 => Token Expired
+    400 => Bad Request
+    422 => Entity Exist
+    403 => Error in Server, please Tell me(Jannes,, heheheheh)*/
+    public static final int CODE_OK = 200;
+    public static final int CODE_EMPTY = 204;
+    public static final int CODE_BAD_REQUEST = 400;
+    public static final int CODE_TOKEN_MISMATCH = 401;
+    public static final int CODE_ERROR_SERVIER = 403;
+    public static final int CODE_TOKEN_EXPIRED = 410;
+    public static final int CODE_ENTITY_EXIST = 422;
 }

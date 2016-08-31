@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.MenuItem;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Wandy on 8/16/2016.
  */

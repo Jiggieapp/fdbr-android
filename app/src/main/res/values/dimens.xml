@@ -13,5 +13,9 @@
     <dimen name="font_small">12sp</dimen>
     <!--END OF FONT SIZE-->
 
+    <dimen name="custom_tab_height">60dp</dimen>
+    <dimen name="custom_tab_padding_top">10dp</dimen>
+    <dimen name="custom_tab_padding_bottom">8dp</dimen>
+    <dimen name="custom_button_height">36dp</dimen>
 
 </resources>

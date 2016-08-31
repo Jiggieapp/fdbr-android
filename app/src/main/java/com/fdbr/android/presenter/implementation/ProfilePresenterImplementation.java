@@ -1,8 +1,10 @@
 package com.fdbr.android.presenter.implementation;
 
+import com.fdbr.android.api.BaseResponse;
 import com.fdbr.android.api.ProfileAPI;
 import com.fdbr.android.base.BaseNetworkManager;
 import com.fdbr.android.model.FeedProfileModel;
+import com.fdbr.android.model.FollowModel;
 import com.fdbr.android.model.ProfileModel;
 import com.fdbr.android.model.TriedModel;
 import com.fdbr.android.model.WishlistModel;
@@ -21,9 +23,25 @@ import rx.schedulers.Schedulers;
 /**
  * Created by LTE on 8/23/2016.
  */
-public class ProfilePresenterImplementation {
+public class ProfilePresenterImplementation /*implements ProfilePresenter.OnFollowListener<ProfileView.OnFollow>*/{
 
-    public static class DetailProfilePresenterImplementation extends BaseNetworkManager implements ProfilePresenter.DetailProfilePresenter{
+    /*@Override
+    public void follow(String userId, String userToFollowId) {
+
+    }
+
+    @Override
+    public void onAttachView(ProfileView.OnFollow view) {
+
+    }
+
+    @Override
+    public void onUnattachView() {
+
+    }*/
+
+    public static class DetailProfilePresenterImplementation extends BaseNetworkManager
+            implements ProfilePresenter.DetailProfilePresenter{
 
         private ProfileView.DetailProfileView detailProfileView;
         private Subscription subscription;
@@ -47,7 +65,23 @@ public class ProfilePresenterImplementation {
                     .getDetailProfile(id)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
-                    .subscribe(new Subscriber<Response<ProfileModel>>() {
+                    .subscribe(new BaseResponse<ProfileModel>() {
+                        @Override
+                        public void onError() {
+
+                        }
+
+                        @Override
+                        public void doOnNext(ProfileModel profileModel) {
+                            detailProfileView.detailProfile(profileModel);
+                        }
+
+                        @Override
+                        public void onCompleted() {
+
+                        }
+                    })
+                    /*.subscribe(new Subscriber<Response<ProfileModel>>() {
                         @Override
                         public void onCompleted() {
                             Utils.d(TAG, "");
@@ -70,7 +104,7 @@ public class ProfilePresenterImplementation {
 
 
                         }
-                    });
+                    })*/;
         }
 
         private static ProfileAPI getInstance()
@@ -183,8 +217,6 @@ public class ProfilePresenterImplementation {
                             }else{
                                 triedView.getTried(response.body());
                             }
-
-
                         }
                     });
         }
@@ -197,7 +229,8 @@ public class ProfilePresenterImplementation {
         }
     }
 
-    public static class FeedProfilePresenterImplementation extends BaseNetworkManager implements ProfilePresenter.FeedProfilePresenter{
+    public static class FeedProfilePresenterImplementation extends BaseNetworkManager
+            implements ProfilePresenter.FeedProfilePresenter{
 
         private ProfileView.FeedProfileView feedProfileView;
         private Subscription subscription;
@@ -241,8 +274,6 @@ public class ProfilePresenterImplementation {
                             }else{
                                 feedProfileView.getFeedProfile(response.body());
                             }
-
-
                         }
                     });
         }
@@ -255,4 +286,57 @@ public class ProfilePresenterImplementation {
         }
     }
 
+    public static final class FollowPresenterImplementation extends BaseNetworkManager
+            implements ProfilePresenter.OnFollowListener
+    {
+        private ProfileView.OnFollow view;
+        private Subscription subscription;
+        private ProfileAPI profileAPI;
+
+        public void follow(String userId, String userToFollowId) {
+            HashMap<String, String> hashmap = new HashMap<>();
+            hashmap.put("user_id", "43409");
+            hashmap.put("follow_user_id", "43412");
+            subscription = getInstance()
+                    .follow(hashmap)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(new BaseResponse<FollowModel>() {
+                        @Override
+                        public void onError() {
+                            Utils.d("fdn", "error");
+                        }
+
+                        @Override
+                        public void doOnNext(FollowModel followModel) {
+                            Utils.d("fdn", "followmodel next");
+                        }
+
+                        @Override
+                        public void onCompleted() {
+                            Utils.d("fdn", "completed");
+                        }
+                    });
+        }
+
+        @Override
+        public void onAttachView(ProfileView.OnFollow view) {
+            this.view = view;
+        }
+
+        private ProfileAPI getInstance()
+        {
+            if(profileAPI == null)
+                profileAPI = getRetrofit().create(ProfileAPI.class);
+            return profileAPI;
+        }
+
+        @Override
+        public void onUnattachView() {
+            this.view = null;
+            subscription.unsubscribe();
+            subscription = null;
+        }
+
+    }
 }

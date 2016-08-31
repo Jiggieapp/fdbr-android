@@ -48,4 +48,9 @@ public class ProfileView {
     }
     //------------------------
 
+    public interface OnFollow
+    {
+        void follow();
+    }
+
 }

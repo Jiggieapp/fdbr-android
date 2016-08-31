@@ -1,9 +1,8 @@
 package com.fdbr.android.view.activity;
 
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuItem;
-import android.widget.RelativeLayout;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.fdbr.android.R;
 import com.fdbr.android.base.BaseActivity;
@@ -11,14 +10,17 @@ import com.fdbr.android.model.AccessToken;
 import com.fdbr.android.model.LoginModel;
 import com.fdbr.android.presenter.implementation.AccessTokenPresenterImplementation;
 import com.fdbr.android.presenter.implementation.AccountPresenterImplementation;
+import com.fdbr.android.presenter.implementation.ProfilePresenterImplementation;
 import com.fdbr.android.utils.Constant;
 import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.interfaces.AccessTokenView;
 import com.fdbr.android.view.interfaces.AccountView;
+import com.fdbr.android.view.interfaces.ProfileView;
 import com.google.gson.Gson;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -26,16 +28,18 @@ import butterknife.OnClick;
 /**
  * Created by LTE on 8/15/2016.
  */
-public class LoginActivity extends BaseActivity implements AccessTokenView, AccountView.LoginView {
+public class LoginActivity extends BaseActivity implements AccessTokenView, AccountView.LoginView, ProfileView.OnFollow {
 
-
+    @BindView(R.id.btnLogin)
+    Button btnLogin;
     @BindView(R.id.edt_username)
-    MaterialEditText edtUsername;
+    EditText edtUsername;
     @BindView(R.id.edt_password)
-    MaterialEditText edtPassword;
-    @BindView(R.id.rel_signin)
-    RelativeLayout relSignin;
+    EditText edtPassword;
+
     private AccessTokenPresenterImplementation implementation;
+    private ProfilePresenterImplementation.FollowPresenterImplementation followImplementation;
+
     private final String TAG = LoginActivity.class.getSimpleName();
 
     private AccountPresenterImplementation.LoginPresenterImplementation loginImplementation;
@@ -48,8 +52,6 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
 
     @Override
     protected void onCreate() {
-        initView();
-
         implementation = new AccessTokenPresenterImplementation();
         implementation.onAttachView(this);
         //implementation.getAccessToken();
@@ -57,14 +59,12 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
         loginImplementation = new AccountPresenterImplementation.LoginPresenterImplementation();
         loginImplementation.onAttachView(this);
 
+        followImplementation = new ProfilePresenterImplementation.FollowPresenterImplementation();
+        followImplementation.follow("", "");
+
     }
 
-    private void initView(){
-        getSupportActionBar().setTitle(Utils.getStringResource(this, R.string.sgin));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    @OnClick(R.id.rel_signin)
+    @OnClick(R.id.btnLogin)
     public void onLoginClick() {
 
         String username = edtUsername.getText().toString();
@@ -72,15 +72,15 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
 
         boolean isPasswordValid = Utils.validasiInput(Constant.TYPE_PASSWORD, username);
 
-        if (!isPasswordValid) {
+        if(!isPasswordValid){
             Utils.showToast(LoginActivity.this, Utils.getStringResource(LoginActivity.this, R.string.inval_password));
-        } else {
+        }else{
             HashMap<String, Object> postLoginModel = new HashMap<>();
             postLoginModel.put("username", username);
             postLoginModel.put("password", password);
 
-            String sd = String.valueOf(new Gson().toJson(postLoginModel));
-            Log.d("sd", "sd");
+            //String sd = String.valueOf(new Gson().toJson(postLoginModel));
+            //Log.d("sd", "sd");
 
             loginImplementation.login(Constant.URL_LOGIN, postLoginModel);
         }
@@ -101,11 +101,14 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
     public void login(LoginModel loginModel) {
 
         String sd = String.valueOf(new Gson().toJson(loginModel));
-        Log.d("sd", "sd");
+        Utils.d(TAG, "sd " + sd);
 
-        /*saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
-        implementation.verifyToken();*/
+        saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
+        /*implementation.verifyToken();*/
     }
 
+    @Override
+    public void follow() {
 
+    }
 }

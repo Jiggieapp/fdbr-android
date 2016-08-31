@@ -37,8 +37,8 @@
     <!--END OF MAIN SCREEN-->
 
     <!--PROFILE SCREEN-->
-    <string name="pf_following">following</string>
-    <string name="pf_followers">followers</string>
+    <string name="pf_following">Following</string>
+    <string name="pf_followers">Followers</string>
 
     <string name="pf_badges">Badges Earned</string>
     <string name="pf_beauty">Beauty Profile</string>
@@ -156,6 +156,11 @@
     <string name="no">No</string>
     <!--END OF GENERAL-->
 
+    <!--TAB-->
+    <string name="discover">Discover</string>
+    <string name="add">Add</string>
+    <string name="products">Products</string>
+    <!--END OF TAB-->
 
 
 </resources>

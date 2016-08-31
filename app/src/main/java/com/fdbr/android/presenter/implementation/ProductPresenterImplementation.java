@@ -62,8 +62,6 @@ public class ProductPresenterImplementation {
                             }else{
                                 brandView.getBrandList(response.body());
                             }
-
-
                         }
                     });
         }

@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyButton" parent="android:Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/custom_button_height</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <!--<item name="android:textSize">22sp</item>-->
+        <item name="android:background">@drawable/button_edit_profile_style</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
 </resources>
