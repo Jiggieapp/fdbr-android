@@ -42,8 +42,6 @@ public abstract class BaseResponse<T> extends Subscriber<Response<T>> {
         }
     }*/
 
-
-
     //public abstract void doRestart();
     public abstract void onError();
     public abstract void doOnNext(T t);

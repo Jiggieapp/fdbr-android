@@ -1,8 +1,8 @@
 package com.fdbr.android.view.activity;
 
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.fdbr.android.R;
 import com.fdbr.android.base.BaseActivity;
@@ -19,8 +19,6 @@ import com.fdbr.android.view.interfaces.ProfileView;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,8 +28,8 @@ import butterknife.OnClick;
  */
 public class LoginActivity extends BaseActivity implements AccessTokenView, AccountView.LoginView, ProfileView.OnFollow {
 
-    @BindView(R.id.btnLogin)
-    Button btnLogin;
+    @BindView(R.id.rel_signin)
+    RelativeLayout btnLogin;
     @BindView(R.id.edt_username)
     EditText edtUsername;
     @BindView(R.id.edt_password)
@@ -64,7 +62,7 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
 
     }
 
-    @OnClick(R.id.btnLogin)
+    @OnClick(R.id.rel_signin)
     public void onLoginClick() {
 
         String username = edtUsername.getText().toString();

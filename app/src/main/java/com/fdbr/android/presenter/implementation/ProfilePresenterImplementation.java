@@ -304,17 +304,14 @@ public class ProfilePresenterImplementation /*implements ProfilePresenter.OnFoll
                     .subscribe(new BaseResponse<FollowModel>() {
                         @Override
                         public void onError() {
-                            Utils.d("fdn", "error");
                         }
 
                         @Override
                         public void doOnNext(FollowModel followModel) {
-                            Utils.d("fdn", "followmodel next");
                         }
 
                         @Override
                         public void onCompleted() {
-                            Utils.d("fdn", "completed");
                         }
                     });
         }
