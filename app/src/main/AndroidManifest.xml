@@ -11,12 +11,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-
-        <activity android:name=".view.fragment.ProfileFragment"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>

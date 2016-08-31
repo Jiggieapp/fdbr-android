@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import com.fdbr.android.base.BaseActivity;
 import com.fdbr.android.view.fragment.DiscoverFragment;
+import com.fdbr.android.view.fragment.EmptyFragment;
+import com.fdbr.android.view.fragment.FeedFragment;
+import com.fdbr.android.view.fragment.ProductFragment;
+import com.fdbr.android.view.fragment.ProfileFragment;
 import com.fdbr.android.view.fragment.ProfileFragment2;
 
 import butterknife.BindView;
@@ -62,6 +66,10 @@ public class MainActivity extends BaseActivity {
         TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_custom, null);
         tabFour.setText(getResources().getString(R.string.products));
         tab.getTabAt(3).setIcon(getResources().getDrawable(R.drawable.ic_tag_faces_black_24px));
+
+        TextView tabFive = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_custom, null);
+        tabFour.setText(getResources().getString(R.string.products));
+        tab.getTabAt(4).setIcon(getResources().getDrawable(R.drawable.ic_tag_faces_black_24px));
     }
 
     protected class MainPageAdapter extends FragmentPagerAdapter
@@ -70,10 +78,11 @@ public class MainActivity extends BaseActivity {
         public MainPageAdapter(FragmentManager fm) {
             super(fm);
             this.fragments = new Fragment[]{
+                    new FeedFragment(),
                     new DiscoverFragment(),
-                    new DiscoverFragment(),
-                    new DiscoverFragment(),
-                    new ProfileFragment2(),
+                    new EmptyFragment(),
+                    new ProductFragment(),
+                    new ProfileFragment(),
             };
         }
 

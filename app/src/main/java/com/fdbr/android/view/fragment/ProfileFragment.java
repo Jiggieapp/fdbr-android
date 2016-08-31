@@ -1,15 +1,22 @@
 package com.fdbr.android.view.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
@@ -18,7 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.fdbr.android.R;
-import com.fdbr.android.base.BaseActivity;
 import com.fdbr.android.model.ProfileModel;
 import com.fdbr.android.presenter.implementation.ProfilePresenterImplementation;
 import com.fdbr.android.utils.Utils;
@@ -28,18 +34,19 @@ import com.fdbr.android.view.widget.RevealBackgroundView;
 import com.google.gson.Gson;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by LTE on 8/15/2016.
  */
-public class ProfileFragment extends BaseActivity implements ProfileView.DetailProfileView, RevealBackgroundView.OnStateChangeListener {
+public class ProfileFragment extends Fragment implements ProfileView.DetailProfileView, RevealBackgroundView.OnStateChangeListener {
 
     private final String TAG = ProfileFragment.class.getSimpleName();
     @BindView(R.id.vRevealBackground)
     RevealBackgroundView vRevealBackground;
-    @BindView(R.id.rvUserProfile)
-    RecyclerView rvUserProfile;
+    /*@BindView(R.id.rvUserProfile)
+    RecyclerView rvUserProfile;*/
     @BindView(R.id.ivUserProfilePhoto)
     ImageView ivUserProfilePhoto;
     @BindView(R.id.vUserDetails)
@@ -60,43 +67,53 @@ public class ProfileFragment extends BaseActivity implements ProfileView.DetailP
     CoordinatorLayout content;
     @BindView(R.id.rel_editprofile)
     RelativeLayout relEditprofile;
+    @BindView(R.id.viewpager)
+    ViewPager viewPager;
 
     private ProfilePresenterImplementation.DetailProfilePresenterImplementation detailProfilePresenterImplementation;
     private static final int USER_OPTIONS_ANIMATION_DELAY = 300;
     private static final Interpolator INTERPOLATOR = new DecelerateInterpolator();
 
-    ProfileFeedAdapter profileFeedAdapter;
+    //ProfileFeedAdapter profileFeedAdapter;
 
-    /*@Nullable
+    ProfilePageAdapter adapter;
+
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile, null);
 
-        detailProfilePresenterImplementation = new ProfilePresenterImplementation.DetailProfilePresenterImplementation();
+        /*detailProfilePresenterImplementation = new ProfilePresenterImplementation.DetailProfilePresenterImplementation();
         detailProfilePresenterImplementation.onAttachView(this);
 
-        detailProfilePresenterImplementation.detailProfile("43417");
+        detailProfilePresenterImplementation.detailProfile("43417");*/
 
         ButterKnife.bind(this, v);
 
+
+        adapter = new ProfilePageAdapter(getChildFragmentManager());
+        viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(adapter.getCount());
+        tlUserProfileTabs.setupWithViewPager(viewPager);
+
         setupTabs();
-        setupUserProfileGrid();
+        //setupUserProfileGrid();
         setupRevealBackground(savedInstanceState, v);
 
         return v;
-    }*/
+    }
 
-    @Override
+    /*@Override
     protected void onCreate() {
         setupTabs();
         setupUserProfileGrid();
         setupRevealBackground(null, content);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public int getContentView() {
         return R.layout.fragment_profile;
-    }
+    }*/
 
     @Override
     public void detailProfile(ProfileModel profileModel) {
@@ -111,21 +128,10 @@ public class ProfileFragment extends BaseActivity implements ProfileView.DetailP
     }
 
     private void setupTabs() {
-        tlUserProfileTabs.addTab(tlUserProfileTabs.newTab().setText(Utils.getStringResource(ProfileFragment.this, R.string.feed)));
-        tlUserProfileTabs.addTab(tlUserProfileTabs.newTab().setText(Utils.getStringResource(ProfileFragment.this, R.string.bio)));
-        tlUserProfileTabs.addTab(tlUserProfileTabs.newTab().setText(Utils.getStringResource(ProfileFragment.this, R.string.wishlist)));
-        tlUserProfileTabs.addTab(tlUserProfileTabs.newTab().setText(Utils.getStringResource(ProfileFragment.this, R.string.tried)));
-    }
-
-    private void setupUserProfileGrid() {
-        final StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        rvUserProfile.setLayoutManager(layoutManager);
-        rvUserProfile.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                profileFeedAdapter.setLockedAnimations(true);
-            }
-        });
+        tlUserProfileTabs.getTabAt(0).setText(Utils.getStringResource(getActivity(), R.string.feed));
+        tlUserProfileTabs.getTabAt(1).setText(Utils.getStringResource(getActivity(), R.string.bio));
+        tlUserProfileTabs.getTabAt(2).setText(Utils.getStringResource(getActivity(), R.string.wishlist));
+        tlUserProfileTabs.getTabAt(3).setText(Utils.getStringResource(getActivity(), R.string.tried));
     }
 
     private void setupRevealBackground(Bundle savedInstanceState, View v) {
@@ -147,23 +153,22 @@ public class ProfileFragment extends BaseActivity implements ProfileView.DetailP
             });
         } else {
             vRevealBackground.setToFinishedFrame();
-            profileFeedAdapter.setLockedAnimations(true);
+            //profileFeedAdapter.setLockedAnimations(true);
         }
     }
 
     @Override
     public void onStateChange(int state) {
         if (RevealBackgroundView.STATE_FINISHED == state) {
-            rvUserProfile.setVisibility(View.VISIBLE);
+            viewPager.setVisibility(View.VISIBLE);
             tlUserProfileTabs.setVisibility(View.VISIBLE);
             vUserProfileRoot.setVisibility(View.VISIBLE);
-            profileFeedAdapter = new ProfileFeedAdapter(this);
-            rvUserProfile.setAdapter(profileFeedAdapter);
+
             animateUserProfileOptions();
             animateUserProfileHeader();
         } else {
             tlUserProfileTabs.setVisibility(View.INVISIBLE);
-            rvUserProfile.setVisibility(View.INVISIBLE);
+            viewPager.setVisibility(View.INVISIBLE);
             vUserProfileRoot.setVisibility(View.INVISIBLE);
         }
     }
@@ -187,5 +192,29 @@ public class ProfileFragment extends BaseActivity implements ProfileView.DetailP
 
     @OnClick(R.id.rel_editprofile)
     public void onClick() {
+    }
+
+    protected class ProfilePageAdapter extends FragmentPagerAdapter {
+        private Fragment[] fragments;
+
+        public ProfilePageAdapter(FragmentManager fm) {
+            super(fm);
+            this.fragments = new Fragment[]{
+                    new ProfileFeedFragment(),
+                    new ProfileProfileFragment(),
+                    new WishlistFragment(),
+                    new TriedFragment(),
+            };
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragments[position];
+        }
+
+        @Override
+        public int getCount() {
+            return fragments.length;
+        }
     }
 }

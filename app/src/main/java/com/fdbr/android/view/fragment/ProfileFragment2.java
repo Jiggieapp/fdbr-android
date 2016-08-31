@@ -25,12 +25,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class ProfileFragment2 extends Fragment implements ProfileView.DetailProfileView {
 
-    @BindView(R.id.lbl_count_reviews) TextView lblCountRevies;
+    /*@BindView(R.id.lbl_count_reviews) TextView lblCountRevies;
     @BindView(R.id.lbl_count_followers) TextView lblCountFollowers;
     @BindView(R.id.lbl_count_following) TextView lblCountFollowing;
     @BindView(R.id.lbl_user_name) TextView lblUserName;
     @BindView(R.id.lbl_user_description) TextView lblUserDescription;
-    @BindView(R.id.profile_image) CircleImageView profileImage;
+    @BindView(R.id.profile_image) CircleImageView profileImage;*/
 
     private final String TAG = ProfileFragment2.class.getSimpleName();
     private ProfilePresenterImplementation.DetailProfilePresenterImplementation detailProfilePresenterImplementation;
@@ -52,7 +52,7 @@ public class ProfileFragment2 extends Fragment implements ProfileView.DetailProf
         String sd = String.valueOf(new Gson().toJson(profileModel));
         Utils.d(TAG, sd);
 
-        Glide.with(this)
+        /*Glide.with(this)
                 .load("https://s3-ap-southeast-1.amazonaws.com/picup-stage/uploads/243/IMG_20160823_141834.jpg")
                 .asBitmap()
                 .into(profileImage);
@@ -63,7 +63,7 @@ public class ProfileFragment2 extends Fragment implements ProfileView.DetailProf
         lblCountRevies.setText(data.getTotal_review() + "");
 
         lblUserName.setText(data.getFullname());
-        lblUserDescription.setText(data.getBio());
+        lblUserDescription.setText(data.getBio());*/
     }
 
     @Override
