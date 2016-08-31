@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/txt_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/sgd_thx"
+        android:textSize="@dimen/font_standar"
+        android:layout_margin="@dimen/padding"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding"
+        android:layout_below="@id/txt_desc"
+        android:src="@drawable/ic_pp"/>
+
+    <TextView
+        android:id="@+id/txt_desc_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_profile"
+        android:layout_centerHorizontal="true"
+        android:text="@string/add_pp"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginBottom="@dimen/padding"
+        android:textAlignment="center"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/edt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/name"
+        android:inputType="textEmailAddress"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorBlack"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_below="@id/txt_desc_profile"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:singleLine="true"
+        />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/edt_dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/sgd_dob"
+        android:inputType="textEmailAddress"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorBlack"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_below="@id/edt_name"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:singleLine="true"
+        />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/edt_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/location"
+        android:inputType="textEmailAddress"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorBlack"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_below="@id/edt_dob"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:singleLine="true"
+        />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/edt_bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/bio"
+        android:inputType="textEmailAddress"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorBlack"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_below="@id/edt_location"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:singleLine="true"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rel_next"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGrey"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/next"
+            android:textSize="@dimen/font_standar"
+            android:textColor="@color/colorWhite"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
