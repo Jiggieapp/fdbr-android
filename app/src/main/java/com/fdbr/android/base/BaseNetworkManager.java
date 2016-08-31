@@ -16,10 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by Wandy on 8/16/2016.
  */
-
-/**
- * Created by Wandy on 8/12/2016.
- */
 public abstract class BaseNetworkManager implements Interceptor {
     private static Retrofit retrofit;
     //private static Retrofit retrofitToken;

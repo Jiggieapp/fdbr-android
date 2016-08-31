@@ -40,6 +40,7 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField("String", "BASE_URL", "\"http://api-dev.femaledaily.net/app/v1/\"")
+        generatedDensities = []
     }
     buildTypes {
         release {
@@ -65,6 +66,11 @@ android {
     defaultConfig {
         multiDexEnabled true
     }
+
+    // This is handled for you by the 2.0+ Gradle Plugin
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
 }
 
 dependencies {
@@ -89,7 +95,8 @@ dependencies {
 
     compile 'com.android.support:design:23.2.1'
 
-    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4' //material edittext
+    compile 'de.hdodenhof:circleimageview:2.1.0' //circular imageview
 
     compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
         transitive = true;
