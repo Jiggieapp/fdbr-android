@@ -65,7 +65,23 @@ public class ProfilePresenterImplementation /*implements ProfilePresenter.OnFoll
                     .getDetailProfile(id)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
-                    .subscribe(new Subscriber<Response<ProfileModel>>() {
+                    .subscribe(new BaseResponse<ProfileModel>() {
+                        @Override
+                        public void onError() {
+
+                        }
+
+                        @Override
+                        public void doOnNext(ProfileModel profileModel) {
+                            detailProfileView.detailProfile(profileModel);
+                        }
+
+                        @Override
+                        public void onCompleted() {
+
+                        }
+                    })
+                    /*.subscribe(new Subscriber<Response<ProfileModel>>() {
                         @Override
                         public void onCompleted() {
                             Utils.d(TAG, "");
@@ -88,7 +104,7 @@ public class ProfilePresenterImplementation /*implements ProfilePresenter.OnFoll
 
 
                         }
-                    });
+                    })*/;
         }
 
         private static ProfileAPI getInstance()

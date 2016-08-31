@@ -3,6 +3,8 @@ package com.fdbr.android.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Wandy on 8/16/2016.
  */

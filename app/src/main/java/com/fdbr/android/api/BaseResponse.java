@@ -20,8 +20,15 @@ public abstract class BaseResponse<T> extends Subscriber<Response<T>> {
     }
 
     @Override
-    public void onNext(Response<T> tResponse) {
-        doOnNext(tResponse.body());
+    public void onNext(Response<T> response) {
+        Utils.d("profilefrag", "response code " + response.code());
+        if (response.code() == Constant.CODE_EMPTY) {
+
+        } else if (response.code() == Constant.CODE_OK) {
+            doOnNext(response.body());
+        } else if (response.code() == Constant.CODE_TOKEN_EXPIRED) {
+            //doRestart();
+        }
     }
 
     /*@Override

@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public final class ProfileModel {
     public final Meta meta;
-    public final Data data;
+    private final Data data;
 
     public ProfileModel(Meta meta, Data data){
         this.meta = meta;
@@ -41,27 +41,27 @@ public final class ProfileModel {
     }
 
     public static final class Data {
-        public final String fullname;
-        public final String username;
-        public final String email;
-        public final String birthday;
-        public final String join_date;
-        public final String about;
-        public final long follower_count;
-        public final long following_count;
-        public final long total_point;
-        public final long total_badge;
-        public final long total_review;
-        public final String bio;
-        public final String facebook;
-        public final String twitter;
-        public final String instagram;
-        public final String youtube;
-        public final String blog;
-        public final Picture picture;
-        public final Beauty_profile beauty_profile;
-        public final Beauty_concern beauty_concern;
-        public final ArrayList<Brand> brands;
+        private final String fullname;
+        private final String username;
+        private final String email;
+        private final String birthday;
+        private final String join_date;
+        private final String about;
+        private final long follower_count;
+        private final long following_count;
+        private final long total_point;
+        private final long total_badge;
+        private final long total_review;
+        private final String bio;
+        private final String facebook;
+        private final String twitter;
+        private final String instagram;
+        private final String youtube;
+        private final String blog;
+        private final Picture picture;
+        private final Beauty_profile beauty_profile;
+        private final Beauty_concern beauty_concern;
+        private final ArrayList<Brand> brands;
 
         public Data(String fullname, String username, String email, String birthday, String join_date, String about, long follower_count, long following_count, long total_point, long total_badge, long total_review, String bio, String facebook, String twitter, String instagram, String youtube, String blog, Picture picture, Beauty_profile beauty_profile, Beauty_concern beauty_concern, ArrayList<Brand> brands){
             this.fullname = fullname;

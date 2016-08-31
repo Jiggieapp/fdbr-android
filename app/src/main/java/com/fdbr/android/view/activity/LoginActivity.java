@@ -101,10 +101,10 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
     public void login(LoginModel loginModel) {
 
         String sd = String.valueOf(new Gson().toJson(loginModel));
-        Log.d("sd", "sd");
+        Utils.d(TAG, "sd " + sd);
 
-        /*saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
-        implementation.verifyToken();*/
+        saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
+        /*implementation.verifyToken();*/
     }
 
     @Override
