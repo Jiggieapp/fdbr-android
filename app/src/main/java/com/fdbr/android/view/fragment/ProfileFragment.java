@@ -10,8 +10,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +26,6 @@ import com.fdbr.android.R;
 import com.fdbr.android.model.ProfileModel;
 import com.fdbr.android.presenter.implementation.ProfilePresenterImplementation;
 import com.fdbr.android.utils.Utils;
-import com.fdbr.android.view.adapter.ProfileFeedAdapter;
 import com.fdbr.android.view.interfaces.ProfileView;
 import com.fdbr.android.view.widget.RevealBackgroundView;
 import com.google.gson.Gson;
@@ -129,9 +126,9 @@ public class ProfileFragment extends Fragment implements ProfileView.DetailProfi
 
     private void setupTabs() {
         tlUserProfileTabs.getTabAt(0).setText(Utils.getStringResource(getActivity(), R.string.feed));
-        tlUserProfileTabs.getTabAt(1).setText(Utils.getStringResource(getActivity(), R.string.bio));
-        tlUserProfileTabs.getTabAt(2).setText(Utils.getStringResource(getActivity(), R.string.wishlist));
-        tlUserProfileTabs.getTabAt(3).setText(Utils.getStringResource(getActivity(), R.string.tried));
+        tlUserProfileTabs.getTabAt(1).setText(Utils.getStringResource(getActivity(), R.string.pf_beautyid));
+        /*tlUserProfileTabs.getTabAt(2).setText(Utils.getStringResource(getActivity(), R.string.wishlist));
+        tlUserProfileTabs.getTabAt(3).setText(Utils.getStringResource(getActivity(), R.string.tried));*/
     }
 
     private void setupRevealBackground(Bundle savedInstanceState, View v) {
@@ -201,9 +198,9 @@ public class ProfileFragment extends Fragment implements ProfileView.DetailProfi
             super(fm);
             this.fragments = new Fragment[]{
                     new ProfileFeedFragment(),
-                    new ProfileProfileFragment(),
-                    new WishlistFragment(),
-                    new TriedFragment(),
+                    new ProfileBeautyFragment()
+                    /*new WishlistFragment(),
+                    new TriedFragment(),*/
             };
         }
 

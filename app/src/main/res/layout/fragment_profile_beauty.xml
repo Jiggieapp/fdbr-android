@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorGreyLight">
+            <TextView
+                android:id="@+id/txt_bp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pf_beauty"
+                android:textSize="@dimen/font_small"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorGrey"
+                android:textAllCaps="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_b_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/padding">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_bp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_sk_ty"
+                    android:textSize="@dimen/font_small"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:id="@+id/txt_in_bp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_sk_in1"
+                    android:textSize="@dimen/font_standar"
+                    android:textColor="@color/colorBlack"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_bp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_sk_un"
+                    android:textSize="@dimen/font_small"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:id="@+id/txt_in_bp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_sk_in2"
+                    android:textSize="@dimen/font_standar"
+                    android:textColor="@color/colorBlack"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_bp3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_sk_to"
+                    android:textSize="@dimen/font_small"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:id="@+id/txt_in_bp3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_sk_in3"
+                    android:textSize="@dimen/font_standar"
+                    android:textColor="@color/colorBlack"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginRight="@dimen/padding"
+            android:layout_marginBottom="@dimen/padding">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_bp4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_hr_ty"
+                    android:textSize="@dimen/font_small"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:id="@+id/txt_in_bp4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_hr_in"
+                    android:textSize="@dimen/font_standar"
+                    android:textColor="@color/colorBlack"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_bp5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_hr_tx"
+                    android:textSize="@dimen/font_small"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:id="@+id/txt_in_bp5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pf_hr_in2"
+                    android:textSize="@dimen/font_standar"
+                    android:textColor="@color/colorBlack"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorGreyLight">
+            <TextView
+                android:id="@+id/txt_bc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pf_beautycon"
+                android:textSize="@dimen/font_small"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorGrey"
+                android:textAllCaps="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/padding">
+
+            <TextView
+                android:id="@+id/txt_bc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pf_sk_con"
+                android:textSize="@dimen/font_small"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/txt_in_bc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pf_sk_con_in"
+                android:textSize="@dimen/font_standar"
+                android:textColor="@color/colorBlack"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginRight="@dimen/padding"
+            >
+
+            <TextView
+                android:id="@+id/txt_bc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pf_bd_con"
+                android:textSize="@dimen/font_small"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/txt_in_bc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pf_bd_con_in"
+                android:textSize="@dimen/font_standar"
+                android:textColor="@color/colorBlack"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

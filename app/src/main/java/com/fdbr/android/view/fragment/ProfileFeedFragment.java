@@ -56,7 +56,7 @@ public class ProfileFeedFragment extends Fragment implements ProfileView.FeedPro
     @Override
     public void onDestroy() {
         super.onDestroy();
-        feedProfilePresenterImplementation.onUnattachView();
+        //feedProfilePresenterImplementation.onUnattachView();
     }
 
     private void setupUserProfileGrid() {
