@@ -5,6 +5,7 @@
 
     <dimen name="padding">16dp</dimen>
     <dimen name="padding_half">8dp</dimen>
+    <dimen name="padding_far">20dp</dimen>
 
 
     <!--FONT SIZE-->
