@@ -248,7 +248,9 @@ public class ProfilePresenterImplementation /*implements ProfilePresenter.OnFoll
         @Override
         public void onUnattachView() {
             profileAPI = null;
-            subscription.unsubscribe();
+            if(subscription!=null&&!subscription.isUnsubscribed()){
+                subscription.unsubscribe();
+            }
         }
 
         @Override

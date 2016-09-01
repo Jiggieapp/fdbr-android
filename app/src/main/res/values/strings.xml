@@ -39,9 +39,27 @@
     <string name="pf_following">Following</string>
     <string name="pf_followers">Followers</string>
 
+    <string name="pf_beautyid">BeautyID</string>
+
     <string name="pf_badges">Badges Earned</string>
     <string name="pf_beauty">Beauty Profile</string>
     <string name="pf_beautycon">Beauty Concern</string>
+
+    <string name="pf_sk_ty">Skin Type</string>
+    <string name="pf_sk_in1">Combination</string>
+    <string name="pf_sk_un">Skin Undertone</string>
+    <string name="pf_sk_in2">Cool</string>
+    <string name="pf_sk_to">Skin Tone</string>
+    <string name="pf_sk_in3">Fair Medium</string>
+    <string name="pf_hr_ty">Hair Type</string>
+    <string name="pf_hr_in">Straight</string>
+    <string name="pf_hr_tx">Hair Texture</string>
+    <string name="pf_hr_in2">Thick</string>
+
+    <string name="pf_sk_con">Skin Concern</string>
+    <string name="pf_sk_con_in">Oiliness, Dryness, Acne, Sensitify, Large pores, Dullness</string>
+    <string name="pf_bd_con">Body Concern</string>
+    <string name="pf_bd_con_in">Sensitivity, Dryness, Acne, Uneven skin tone, Unwanted hair</string>
     <!--END OF PROFILE SCREEN-->
 
     <!--SETTING SCREEN-->
