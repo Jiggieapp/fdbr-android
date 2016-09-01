@@ -17,4 +17,8 @@ public class AccountPresenter  {
         void register(String url, HashMap<String, Object> postRegisterModel);
     }
 
+    public interface PredefinedPresenter extends BasePresenter<AccountView.PredefinedView>{
+        void predefined();
+    }
+
 }

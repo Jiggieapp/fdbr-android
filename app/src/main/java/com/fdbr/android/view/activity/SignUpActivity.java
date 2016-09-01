@@ -1,5 +1,6 @@
 package com.fdbr.android.view.activity;
 
+import android.content.Intent;
 import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -97,6 +98,8 @@ public class SignUpActivity extends BaseActivity implements AccountView.Register
         Log.d("sd", "sd");
 
         saveToPreference(Constant.ACCESS_TOKEN_PREF, registerModel.getData().getToken());
+
+        startActivity(new Intent(SignUpActivity.this, SetupBeautyProfileActivity.class));
     }
 
     @Override
