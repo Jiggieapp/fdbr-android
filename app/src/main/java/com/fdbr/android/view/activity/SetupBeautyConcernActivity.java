@@ -9,9 +9,11 @@ import android.widget.TextView;
 
 import com.fdbr.android.R;
 import com.fdbr.android.base.BaseActivity;
+import com.fdbr.android.model.PredefinedModel;
 import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.widget.FlowLayout;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -46,13 +48,17 @@ public class SetupBeautyConcernActivity extends BaseActivity {
     String[] arr_hair = {"Tag a", "Tag b", "Tag c"};
 
     private static final String TAG = SetupBeautyConcernActivity.class.getSimpleName();
+    private PredefinedModel.Data data;
 
     @Override
     protected void onCreate() {
         initView();
-        setupTagSkin();
-        setupTagBody();
-        setupTagHair();
+
+        data = getIntent().getParcelableExtra(PredefinedModel.Data.class.getName());
+
+        setupTagSkin(data.getSkin_concerns());
+        setupTagBody(data.getBody_concerns());
+        setupTagHair(data.getHair_concerns());
     }
 
     @Override
@@ -65,12 +71,14 @@ public class SetupBeautyConcernActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    private void setupTagSkin() {
+    private void setupTagSkin(ArrayList<PredefinedModel.Data.Skin_concern> data) {
         final LayoutInflater inflater = getLayoutInflater();
 
-        for (int i = 0; i < arr_skin.length; i++) {
+        for (int i = 0; i < data.size(); i++) {
+            String nameTag = data.get(i).getSkicon_name();
+
             final View view = inflater.inflate(R.layout.item_setup_tag, flSkin, false);
-            final ViewHolder holder = new ViewHolder(SetupBeautyConcernActivity.this, view, arr_skin[i], TAG_SKIN);
+            final ViewHolder holder = new ViewHolder(SetupBeautyConcernActivity.this, view, nameTag, TAG_SKIN);
 
             holder.textView.setText(holder.text);
             /*selectedItemsSkin.add(arr_skin[i]);
@@ -81,12 +89,14 @@ public class SetupBeautyConcernActivity extends BaseActivity {
         }
     }
 
-    private void setupTagBody() {
+    private void setupTagBody(ArrayList<PredefinedModel.Data.Body_concern> data) {
         final LayoutInflater inflater = getLayoutInflater();
 
-        for (int i = 0; i < arr_body.length; i++) {
+        for (int i = 0; i < data.size(); i++) {
+            String nameTag = data.get(i).getBodcon_name();
+
             final View view = inflater.inflate(R.layout.item_setup_tag, flBody, false);
-            final ViewHolder holder = new ViewHolder(SetupBeautyConcernActivity.this, view, arr_body[i], TAG_BODY);
+            final ViewHolder holder = new ViewHolder(SetupBeautyConcernActivity.this, view, nameTag, TAG_BODY);
 
             holder.textView.setText(holder.text);
             /*selectedItemsBody.add(arr_body[i]);
@@ -97,12 +107,14 @@ public class SetupBeautyConcernActivity extends BaseActivity {
         }
     }
 
-    private void setupTagHair() {
+    private void setupTagHair(ArrayList<PredefinedModel.Data.Hair_concern> data) {
         final LayoutInflater inflater = getLayoutInflater();
 
-        for (int i = 0; i < arr_hair.length; i++) {
+        for (int i = 0; i < data.size(); i++) {
+            String nameTag = data.get(i).getHaicon_name();
+
             final View view = inflater.inflate(R.layout.item_setup_tag, flHair, false);
-            final ViewHolder holder = new ViewHolder(SetupBeautyConcernActivity.this, view, arr_hair[i], TAG_HAIR);
+            final ViewHolder holder = new ViewHolder(SetupBeautyConcernActivity.this, view, nameTag, TAG_HAIR);
 
             holder.textView.setText(holder.text);
             /*selectedItemsHair.add(arr_hair[i]);

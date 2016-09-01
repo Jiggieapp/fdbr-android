@@ -4,6 +4,7 @@ import com.fdbr.android.api.AccountAPI;
 import com.fdbr.android.api.BaseResponse;
 import com.fdbr.android.base.BaseNetworkManager;
 import com.fdbr.android.model.LoginModel;
+import com.fdbr.android.model.PredefinedModel;
 import com.fdbr.android.model.RegisterModel;
 import com.fdbr.android.presenter.AccountPresenter;
 import com.fdbr.android.utils.Utils;
@@ -37,7 +38,10 @@ public class AccountPresenterImplementation  {
         @Override
         public void onUnattachView() {
             accountAPI = null;
-            subscription.unsubscribe();
+            if(subscription!=null&&!subscription.isUnsubscribed()){
+                subscription.unsubscribe();
+            }
+
         }
 
         @Override
@@ -165,5 +169,57 @@ public class AccountPresenterImplementation  {
         }
     }
     //END OF REGISTER PART=========================
+
+    //PREDEFINED PART===========================
+    public static class PredefinedPresenterImplementation extends BaseNetworkManager implements AccountPresenter.PredefinedPresenter{
+        private AccountView.PredefinedView predefinedView;
+        private Subscription subscription;
+        private static AccountAPI accountAPI;
+        private final String TAG = PredefinedPresenterImplementation.class.getSimpleName();
+
+        @Override
+        public void onAttachView(AccountView.PredefinedView view) {
+            this.predefinedView = view;
+        }
+
+        @Override
+        public void onUnattachView() {
+            accountAPI = null;
+            if(subscription!=null&&!subscription.isUnsubscribed()){
+                subscription.unsubscribe();
+            }
+
+        }
+
+        @Override
+        public void predefined() {
+            subscription = getInstance()
+                    .getPredefined()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(new BaseResponse<PredefinedModel>() {
+                        @Override
+                        public void onError() {
+                        }
+
+                        @Override
+                        public void doOnNext(PredefinedModel predefinedModel) {
+                            predefinedView.predefined(predefinedModel);
+                        }
+
+                        @Override
+                        public void onCompleted() {
+                        }
+                    });
+        }
+
+        private static AccountAPI getInstance()
+        {
+            if(accountAPI == null)
+                accountAPI = getRetrofit().create(AccountAPI.class);
+            return accountAPI;
+        }
+    }
+    //PREDEFINED PART===========================
 
 }
