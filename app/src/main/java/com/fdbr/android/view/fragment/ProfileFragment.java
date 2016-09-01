@@ -21,10 +21,13 @@ import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.fdbr.android.App;
 import com.fdbr.android.R;
 import com.fdbr.android.model.ProfileModel;
 import com.fdbr.android.presenter.implementation.ProfilePresenterImplementation;
+import com.fdbr.android.utils.Constant;
 import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.interfaces.ProfileView;
 import com.fdbr.android.view.widget.RevealBackgroundView;
@@ -66,6 +69,20 @@ public class ProfileFragment extends Fragment implements ProfileView.DetailProfi
     RelativeLayout relEditprofile;
     @BindView(R.id.viewpager)
     ViewPager viewPager;
+    @BindView(R.id.txt_reviews)
+    TextView txtReviews;
+    @BindView(R.id.txt_followers)
+    TextView txtFollowers;
+    @BindView(R.id.txt_following)
+    TextView txtFollowing;
+    @BindView(R.id.txt_name)
+    TextView txtName;
+    @BindView(R.id.txt_location)
+    TextView txtLocation;
+    @BindView(R.id.txt_desc)
+    TextView txtDesc;
+    @BindView(R.id.txt_username)
+    TextView txtUsername;
 
     private ProfilePresenterImplementation.DetailProfilePresenterImplementation detailProfilePresenterImplementation;
     private static final int USER_OPTIONS_ANIMATION_DELAY = 300;
@@ -79,12 +96,6 @@ public class ProfileFragment extends Fragment implements ProfileView.DetailProfi
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile, null);
-
-        /*detailProfilePresenterImplementation = new ProfilePresenterImplementation.DetailProfilePresenterImplementation();
-        detailProfilePresenterImplementation.onAttachView(this);
-
-        detailProfilePresenterImplementation.detailProfile("43417");*/
-
         ButterKnife.bind(this, v);
 
 
@@ -94,34 +105,36 @@ public class ProfileFragment extends Fragment implements ProfileView.DetailProfi
         tlUserProfileTabs.setupWithViewPager(viewPager);
 
         setupTabs();
-        //setupUserProfileGrid();
         setupRevealBackground(savedInstanceState, v);
+
+        detailProfilePresenterImplementation = new ProfilePresenterImplementation.DetailProfilePresenterImplementation();
+        detailProfilePresenterImplementation.onAttachView(this);
+
+        detailProfilePresenterImplementation.detailProfile(App.getFromPreference(Constant.USER_ID));
 
         return v;
     }
-
-    /*@Override
-    protected void onCreate() {
-        setupTabs();
-        setupUserProfileGrid();
-        setupRevealBackground(null, content);
-    }*/
-
-    /*@Override
-    public int getContentView() {
-        return R.layout.fragment_profile;
-    }*/
 
     @Override
     public void detailProfile(ProfileModel profileModel) {
         String sd = String.valueOf(new Gson().toJson(profileModel));
         Log.d("sd", "sd");
+
+        ProfileModel.Data data = profileModel.getData();
+
+        txtUsername.setText(data.getUsername());
+        txtName.setText(data.getFullname());
+        txtReviews.setText(String.valueOf(data.getTotal_review()));
+        txtFollowers.setText(String.valueOf(data.getFollower_count()));
+        txtFollowing.setText(String.valueOf(data.getFollowing_count()));
+        //txtLocation.setText("");
+        txtDesc.setText(data.getBio());
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //detailProfilePresenterImplementation.onUnattachView();
+        detailProfilePresenterImplementation.onUnattachView();
     }
 
     private void setupTabs() {
@@ -150,7 +163,6 @@ public class ProfileFragment extends Fragment implements ProfileView.DetailProfi
             });
         } else {
             vRevealBackground.setToFinishedFrame();
-            //profileFeedAdapter.setLockedAnimations(true);
         }
     }
 

@@ -25,6 +25,7 @@ public class Constant {
 
     //pref
     public static final String ACCESS_TOKEN_PREF = "access_token";
+    public static final String USER_ID = "user_id";
 
     //status code
 
