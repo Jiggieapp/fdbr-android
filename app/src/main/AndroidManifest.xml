@@ -3,6 +3,17 @@
     package="com.fdbr.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
     <application
         android:name=".App"
@@ -69,6 +80,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
+
+        <activity
+            android:name=".view.activity.TakePhotoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransparentActivity"></activity>
 
         <meta-data
             android:name="io.fabric.ApiKey"

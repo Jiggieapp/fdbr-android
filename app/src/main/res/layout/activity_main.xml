@@ -35,4 +35,25 @@
         app:tabSelectedTextColor="@android:color/white"
         app:tabTextColor="@android:color/darker_gray" />
 
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/tab">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btnCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="@dimen/padding"
+            android:layout_marginRight="@dimen/padding"
+            android:src="@drawable/ic_edit_white_24dp"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
 </RelativeLayout>

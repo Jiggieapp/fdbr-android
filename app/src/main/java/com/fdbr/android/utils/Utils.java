@@ -1,6 +1,7 @@
 package com.fdbr.android.utils;
 
 import android.app.Activity;
+import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -56,5 +57,9 @@ public class Utils {
         }
 
         return isValid;
+    }
+
+    public static boolean isAndroid5() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 }
