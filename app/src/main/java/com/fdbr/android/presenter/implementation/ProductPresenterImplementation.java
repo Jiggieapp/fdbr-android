@@ -1,8 +1,11 @@
 package com.fdbr.android.presenter.implementation;
 
+import com.fdbr.android.api.BaseResponse;
 import com.fdbr.android.api.ProductAPI;
 import com.fdbr.android.base.BaseNetworkManager;
 import com.fdbr.android.model.BrandModel;
+import com.fdbr.android.model.ProductDetailModel;
+import com.fdbr.android.model.ProductListModel;
 import com.fdbr.android.presenter.ProductPresenter;
 import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.interfaces.ProductView;
@@ -18,6 +21,7 @@ import rx.schedulers.Schedulers;
  */
 public class ProductPresenterImplementation {
 
+    //BRAND PART---------------------
     public static class BrandPresenterImplementation extends BaseNetworkManager implements ProductPresenter.BrandPresenter{
 
         private ProductView.BrandView brandView;
@@ -73,5 +77,106 @@ public class ProductPresenterImplementation {
             return productAPI;
         }
     }
+    //END OF BRAND PART---------------------------
+
+    //PRODUCT LIST PART---------------------------
+    public static class ProductListPresenterImplementation extends BaseNetworkManager implements ProductPresenter.ProductListPresenter{
+
+        private ProductView.ProductListView productListView;
+        private Subscription subscription;
+        private static ProductAPI productAPI;
+        private final String TAG = ProductListPresenterImplementation.class.getSimpleName();
+
+        @Override
+        public void onAttachView(ProductView.ProductListView view) {
+            this.productListView = view;
+        }
+
+        @Override
+        public void onUnattachView() {
+            productAPI = null;
+            subscription.unsubscribe();
+        }
+
+        @Override
+        public void productList() {
+            subscription = getInstance()
+                    .getProductList()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(new BaseResponse<ProductListModel>() {
+                        @Override
+                        public void onError() {
+                        }
+
+                        @Override
+                        public void doOnNext(ProductListModel productListModel) {
+                            productListView.getProductList(productListModel);
+                        }
+
+                        @Override
+                        public void onCompleted() {
+                        }
+                    });
+        }
+
+        private static ProductAPI getInstance()
+        {
+            if(productAPI == null)
+                productAPI = getRetrofit().create(ProductAPI.class);
+            return productAPI;
+        }
+    }
+    //END OF PRODUCT LIST PART---------------------------
+
+    //PRODUCT LIST PART---------------------------
+    public static class ProductDetailPresenterImplementation extends BaseNetworkManager implements ProductPresenter.ProductDetailPresenter{
+
+        private ProductView.ProductDetailView productDetailView;
+        private Subscription subscription;
+        private static ProductAPI productAPI;
+        private final String TAG = ProductDetailPresenterImplementation.class.getSimpleName();
+
+        @Override
+        public void onAttachView(ProductView.ProductDetailView view) {
+            this.productDetailView = view;
+        }
+
+        @Override
+        public void onUnattachView() {
+            productAPI = null;
+            subscription.unsubscribe();
+        }
+
+        @Override
+        public void productDetail(String product_id) {
+            subscription = getInstance()
+                    .getProductDetail(product_id)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(new BaseResponse<ProductDetailModel>() {
+                        @Override
+                        public void onError() {
+                        }
+
+                        @Override
+                        public void doOnNext(ProductDetailModel productListModel) {
+                            productDetailView.getProductDetail(productListModel);
+                        }
+
+                        @Override
+                        public void onCompleted() {
+                        }
+                    });
+        }
+
+        private static ProductAPI getInstance()
+        {
+            if(productAPI == null)
+                productAPI = getRetrofit().create(ProductAPI.class);
+            return productAPI;
+        }
+    }
+    //END OF PRODUCT LIST PART---------------------------
 
 }

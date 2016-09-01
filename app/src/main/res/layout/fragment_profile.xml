@@ -80,6 +80,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/txt_reviews"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="1167"
@@ -90,7 +91,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="posts"
+                                    android:text="@string/reviews"
                                     android:textColor="@color/colorBlack"
                                     android:textSize="12sp"
                                     android:layout_gravity="center_horizontal"/>
@@ -103,6 +104,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/txt_followers"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="396"
@@ -126,6 +128,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/txt_following"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="485"
@@ -174,6 +177,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txt_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Hanifa Ambadar"
@@ -181,6 +185,7 @@
                             android:textSize="@dimen/font_standar" />
 
                         <TextView
+                            android:id="@+id/txt_location"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Jakarta, Indonesia"
@@ -188,6 +193,7 @@
                             android:textSize="@dimen/font_standar" />
 
                         <TextView
+                            android:id="@+id/txt_desc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Woman entepreneur, CEO at office and home"

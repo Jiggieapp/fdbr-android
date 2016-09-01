@@ -1,5 +1,6 @@
 package com.fdbr.android.view.activity;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.fdbr.android.MainActivity;
 import com.fdbr.android.R;
 import com.fdbr.android.base.BaseActivity;
 import com.fdbr.android.model.PredefinedModel;
@@ -216,5 +218,6 @@ public class SetupBeautyConcernActivity extends BaseActivity {
 
     @OnClick(R.id.rel_done)
     public void onClick() {
+        startActivity(new Intent(SetupBeautyConcernActivity.this, MainActivity.class));
     }
 }

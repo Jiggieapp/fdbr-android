@@ -104,6 +104,7 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
         Utils.d(TAG, "sd " + sd);
 
         saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
+        saveToPreference(Constant.USER_ID, String.valueOf(loginModel.getData().getRows().getId()));
         /*implementation.verifyToken();*/
 
         startActivity(new Intent(LoginActivity.this, SetupBeautyProfileActivity.class));

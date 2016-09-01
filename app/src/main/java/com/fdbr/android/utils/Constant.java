@@ -22,9 +22,12 @@ public class Constant {
     public static final String URL_BRAND = BASE_URL + "user/brand";
     public static final String URL_FOLLOW = BASE_URL + "follow";
     public static final String URL_PREDEFINED = BASE_URL + "user/predefined";
+    public static final String URL_PRODUCT_LIST = BASE_URL + "product_list";
+    public static final String URL_PRODUCT_DETAIL = BASE_URL + "product/detail/{product_id}";
 
     //pref
     public static final String ACCESS_TOKEN_PREF = "access_token";
+    public static final String USER_ID = "user_id";
 
     //status code
 
