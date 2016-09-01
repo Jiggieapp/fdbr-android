@@ -98,6 +98,8 @@ dependencies {
     compile 'com.rengwuxian.materialedittext:library:2.1.4' //material edittext
     compile 'de.hdodenhof:circleimageview:2.1.0' //circular imageview
 
+    compile 'com.facebook.android:facebook-android-sdk:4.+'
+
     compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
         transitive = true;
     }

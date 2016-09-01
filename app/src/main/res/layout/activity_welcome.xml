@@ -22,7 +22,7 @@
         android:layout_marginTop="@dimen/padding"
         android:layout_marginLeft="@dimen/padding"
         android:layout_marginRight="@dimen/padding"
-        android:background="@color/colorGrey">
+        android:background="@drawable/button">
 
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
         android:layout_marginTop="@dimen/padding"
         android:layout_marginLeft="@dimen/padding"
         android:layout_marginRight="@dimen/padding"
-        android:background="@color/colorGrey">
+        android:background="@drawable/btn_facebook">
 
         <TextView
             android:layout_width="wrap_content"

@@ -1,6 +1,8 @@
 <resources>
     <!--<string name="app_name">FDBR</string>-->
 
+    <string name="facebook_app_id">246747392111155</string>
+
     <!--WELCOME SCREEN-->
     <string name="wl_to">Welcome to</string>
     <string name="wl_or">OR</string>
