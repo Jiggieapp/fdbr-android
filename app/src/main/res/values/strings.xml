@@ -15,10 +15,9 @@
     <!--SIGN UP SCREEN-->
     <string name="sgup">Sign Up</string>
     <string name="sgup_desc">Tell us a few details about yourself and we\'ll get you on your way.</string>
-    <string name="sgup_pp">Add your profile picture</string>
     <string name="sgup_agree">By signing up, your agree to our</string>
-    <string name="sgup_term">Terms of Service</string>
-    <string name="sgup_policy">Privacy Policy</string>
+    <string name="sgup_term"><u>Terms of Service</u></string>
+    <string name="sgup_policy"><u>Privacy Policy</u></string>
     <string name="sgup_n">\u0026</string>
     <string name="sgup_reg">Register</string>
     <!--END OF SIGN UP SCREEN-->
@@ -40,9 +39,27 @@
     <string name="pf_following">Following</string>
     <string name="pf_followers">Followers</string>
 
+    <string name="pf_beautyid">BeautyID</string>
+
     <string name="pf_badges">Badges Earned</string>
     <string name="pf_beauty">Beauty Profile</string>
     <string name="pf_beautycon">Beauty Concern</string>
+
+    <string name="pf_sk_ty">Skin Type</string>
+    <string name="pf_sk_in1">Combination</string>
+    <string name="pf_sk_un">Skin Undertone</string>
+    <string name="pf_sk_in2">Cool</string>
+    <string name="pf_sk_to">Skin Tone</string>
+    <string name="pf_sk_in3">Fair Medium</string>
+    <string name="pf_hr_ty">Hair Type</string>
+    <string name="pf_hr_in">Straight</string>
+    <string name="pf_hr_tx">Hair Texture</string>
+    <string name="pf_hr_in2">Thick</string>
+
+    <string name="pf_sk_con">Skin Concern</string>
+    <string name="pf_sk_con_in">Oiliness, Dryness, Acne, Sensitify, Large pores, Dullness</string>
+    <string name="pf_bd_con">Body Concern</string>
+    <string name="pf_bd_con_in">Sensitivity, Dryness, Acne, Uneven skin tone, Unwanted hair</string>
     <!--END OF PROFILE SCREEN-->
 
     <!--SETTING SCREEN-->
@@ -94,7 +111,6 @@
     <!--ADD SCREEN-->
     <string name="add_post">Post Product</string>
     <string name="add_pho">Photo Library</string>
-    <string name="add_next">Next</string>
     <!--END OF ADD SCREEN-->
 
     <!--SHARE SCREEN-->
@@ -129,6 +145,11 @@
     <string name="inval_password">Password format is invalid</string>
     <!--END OF ERROR MESSAGE-->
 
+    <!--SIGNUP DETAIL SCREEN-->
+    <string name="sgd_thx">Thanks! Let\'s setup your profile.</string>
+    <string name="sgd_dob">DOB</string>
+    <!--END OF SIGNUP DETAIL SCREEN-->
+
     <!--GENERAL-->
     <string name="username">Username</string>
     <string name="name">Name</string>
@@ -154,6 +175,13 @@
     <string name="tags">Tags</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="add_pp">Add your profile picture</string>
+    <string name="location">Location</string>
+    <string name="bio">Bio</string>
+    <string name="next">Next</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="tried">Tried</string>
+    <string name="setup_tag1">Create Beauty Profile</string>
     <!--END OF GENERAL-->
 
     <!--TAB-->

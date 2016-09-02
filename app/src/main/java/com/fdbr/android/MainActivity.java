@@ -1,7 +1,5 @@
 package com.fdbr.android;
 
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,13 +9,14 @@ import android.view.LayoutInflater;
 import android.widget.TextView;
 
 import com.fdbr.android.base.BaseActivity;
-import com.fdbr.android.view.activity.TakePhotoActivity;
-import com.fdbr.android.view.fragment.AddPostFragment;
 import com.fdbr.android.view.fragment.DiscoverFragment;
+import com.fdbr.android.view.fragment.EmptyFragment;
+import com.fdbr.android.view.fragment.FeedFragment;
+import com.fdbr.android.view.fragment.ProductFragment;
+import com.fdbr.android.view.fragment.ProfileFragment;
 import com.fdbr.android.view.fragment.ProfileFragment2;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
@@ -25,8 +24,6 @@ public class MainActivity extends BaseActivity {
     TabLayout tab;
     @BindView(R.id.viewpager)
     ViewPager viewPager;
-    @BindView(R.id.btnCreate)
-    FloatingActionButton fab;
 
     MainPageAdapter adapter;
     private final String TAG = MainActivity.class.getSimpleName();
@@ -70,10 +67,9 @@ public class MainActivity extends BaseActivity {
         tabFour.setText(getResources().getString(R.string.products));
         tab.getTabAt(3).setIcon(getResources().getDrawable(R.drawable.ic_tag_faces_black_24px));
 
-        /*TextView tabFive = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_custom, null);
-        tabFive.setText(getResources().getString(R.string.products));
+        TextView tabFive = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_custom, null);
+        tabFour.setText(getResources().getString(R.string.products));
         tab.getTabAt(4).setIcon(getResources().getDrawable(R.drawable.ic_tag_faces_black_24px));
-        */
     }
 
     protected class MainPageAdapter extends FragmentPagerAdapter
@@ -82,11 +78,11 @@ public class MainActivity extends BaseActivity {
         public MainPageAdapter(FragmentManager fm) {
             super(fm);
             this.fragments = new Fragment[]{
+                    new FeedFragment(),
                     new DiscoverFragment(),
-                    new DiscoverFragment(),
-                    //new AddPostFragment(),
-                    new DiscoverFragment(),
-                    new ProfileFragment2(),
+                    new EmptyFragment(),
+                    new ProductFragment(),
+                    new ProfileFragment(),
             };
         }
 
@@ -99,18 +95,5 @@ public class MainActivity extends BaseActivity {
         public int getCount() {
             return fragments.length;
         }
-    }
-
-    @OnClick(R.id.btnCreate)
-    void onClickFAB()
-    {
-        /*Intent i = new Intent(this, TakePhotoActivity.class);
-        startActivity(i);*/
-
-        int[] startingLocation = new int[2];
-        fab.getLocationOnScreen(startingLocation);
-        startingLocation[0] += fab.getWidth() / 2;
-        TakePhotoActivity.startCameraFromLocation(startingLocation, this);
-        overridePendingTransition(0, 0);
     }
 }

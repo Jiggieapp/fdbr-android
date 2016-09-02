@@ -1,5 +1,6 @@
 package com.fdbr.android.view.activity;
 
+import android.content.Intent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -58,7 +59,7 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
         loginImplementation.onAttachView(this);
 
         followImplementation = new ProfilePresenterImplementation.FollowPresenterImplementation();
-        followImplementation.follow("", "");
+        //followImplementation.follow("", "");
 
     }
 
@@ -87,6 +88,7 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
     @Override
     public void onDestroy() {
         super.onDestroy();
+        loginImplementation.onUnattachView();
         implementation.onUnattachView();
     }
 
@@ -102,7 +104,10 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
         Utils.d(TAG, "sd " + sd);
 
         saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
+        saveToPreference(Constant.USER_ID, String.valueOf(loginModel.getData().getRows().getId()));
         /*implementation.verifyToken();*/
+
+        startActivity(new Intent(LoginActivity.this, SetupBeautyProfileActivity.class));
     }
 
     @Override

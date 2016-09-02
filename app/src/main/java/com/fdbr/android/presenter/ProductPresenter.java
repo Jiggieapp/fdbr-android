@@ -11,4 +11,12 @@ public class ProductPresenter {
         void brandList();
     }
 
+    public interface ProductListPresenter extends BasePresenter<ProductView.ProductListView>{
+        void productList();
+    }
+
+    public interface ProductDetailPresenter extends BasePresenter<ProductView.ProductDetailView>{
+        void productDetail(String product_id);
+    }
+
 }

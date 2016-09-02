@@ -5,6 +5,7 @@
 
     <dimen name="padding">16dp</dimen>
     <dimen name="padding_half">8dp</dimen>
+    <dimen name="padding_far">20dp</dimen>
 
 
     <!--FONT SIZE-->
@@ -12,6 +13,8 @@
     <dimen name="font_standar">16sp</dimen>
     <dimen name="font_small">12sp</dimen>
     <!--END OF FONT SIZE-->
+
+    <dimen name="default_elevation">8dp</dimen>
 
     <dimen name="custom_tab_height">60dp</dimen>
     <dimen name="custom_tab_padding_top">10dp</dimen>

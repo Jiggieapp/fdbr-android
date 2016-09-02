@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by LTE on 8/23/2016.
+ * Created by LTE on 8/31/2016.
  */
-public class FeedFragment extends Fragment {
+public class EmptyFragment extends Fragment {
 
     @Nullable
     @Override

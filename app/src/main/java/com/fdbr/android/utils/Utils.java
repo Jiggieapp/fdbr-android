@@ -1,8 +1,15 @@
 package com.fdbr.android.utils;
 
 import android.app.Activity;
+<<<<<<< HEAD
 import android.os.Build;
+=======
+import android.content.Context;
+import android.graphics.Point;
+>>>>>>> e15576df5a3730a6581014320531e952196602c3
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.fdbr.android.R;
@@ -61,5 +68,18 @@ public class Utils {
 
     public static boolean isAndroid5() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
+    private static int screenWidth = 0;
+    public static int getScreenWidth(Context c) {
+        if (screenWidth == 0) {
+            WindowManager wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+            Display display = wm.getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            screenWidth = size.x;
+        }
+
+        return screenWidth;
     }
 }

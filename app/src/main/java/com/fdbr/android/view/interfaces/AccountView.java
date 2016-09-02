@@ -1,6 +1,7 @@
 package com.fdbr.android.view.interfaces;
 
 import com.fdbr.android.model.LoginModel;
+import com.fdbr.android.model.PredefinedModel;
 import com.fdbr.android.model.RegisterModel;
 
 /**
@@ -14,6 +15,10 @@ public class AccountView {
 
     public interface RegisterView{
         void register(RegisterModel registerModel);
+    }
+
+    public interface PredefinedView{
+        void predefined(PredefinedModel predefinedModel);
     }
 
 

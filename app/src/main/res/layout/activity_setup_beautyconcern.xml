@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/rel_done">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txt_skin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:text="@string/bc_skin"
+                android:textSize="@dimen/font_standar"
+                android:textColor="@color/colorGrey"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
+                android:layout_marginTop="@dimen/padding_far"
+                android:layout_marginBottom="@dimen/padding_half"
+                android:textAllCaps="true"/>
+
+            <com.fdbr.android.view.widget.FlowLayout
+                android:id="@+id/fl_skin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/txt_skin"/>
+
+            <TextView
+                android:id="@+id/txt_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/bc_body"
+                android:textSize="@dimen/font_standar"
+                android:textColor="@color/colorGrey"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
+                android:layout_marginTop="@dimen/padding_far"
+                android:layout_marginBottom="@dimen/padding_half"
+                android:textAllCaps="true"
+                android:layout_below="@id/fl_skin"/>
+
+            <com.fdbr.android.view.widget.FlowLayout
+                android:id="@+id/fl_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/txt_body"/>
+
+            <TextView
+                android:id="@+id/txt_hair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/bc_hair"
+                android:textSize="@dimen/font_standar"
+                android:textColor="@color/colorGrey"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
+                android:layout_marginTop="@dimen/padding_far"
+                android:layout_marginBottom="@dimen/padding_half"
+                android:textAllCaps="true"
+                android:layout_below="@id/fl_body"/>
+
+            <com.fdbr.android.view.widget.FlowLayout
+                android:id="@+id/fl_hair"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/txt_hair"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rel_done"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/button"
+        android:layout_alignParentBottom="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/done"
+            android:textSize="@dimen/font_standar"
+            android:textColor="@color/colorWhite"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

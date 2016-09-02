@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/edt_currpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/chp_cur"
+        android:inputType="textPassword"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorPrimary"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/font_standar"
+        android:layout_margin="@dimen/padding"
+        android:singleLine="true"
+        />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/edt_newpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/chp_new"
+        android:inputType="textPassword"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorPrimary"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_below="@id/edt_currpass"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:singleLine="true"
+        />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/edt_confpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/chp_con"
+        android:inputType="textPassword"
+        app:met_baseColor="@color/colorGrey"
+        app:met_primaryColor="@color/colorPrimary"
+        app:met_textColorHint="@color/colorGrey"
+        app:met_errorColor="@android:color/holo_red_light"
+        android:layout_below="@id/edt_newpass"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:singleLine="true"
+        />
+
+</RelativeLayout>

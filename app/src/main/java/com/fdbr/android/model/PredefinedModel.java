@@ -1,11 +1,14 @@
 package com.fdbr.android.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
 /**
  * Created by LTE on 8/25/2016.
  */
-public final class PredefinedModel {
+public final class PredefinedModel implements Parcelable {
     public final Meta meta;
     public final Data data;
 
@@ -14,7 +17,15 @@ public final class PredefinedModel {
         this.data = data;
     }
 
-    public static final class Meta {
+    public Meta getMeta() {
+        return meta;
+    }
+
+    public Data getData() {
+        return data;
+    }
+
+    public static final class Meta implements Parcelable {
         public final long code;
         public final String msg;
 
@@ -30,9 +41,38 @@ public final class PredefinedModel {
         public String getMsg() {
             return msg;
         }
+
+        protected Meta(Parcel in) {
+            code = in.readLong();
+            msg = in.readString();
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeLong(code);
+            dest.writeString(msg);
+        }
+
+        @SuppressWarnings("unused")
+        public static final Parcelable.Creator<Meta> CREATOR = new Parcelable.Creator<Meta>() {
+            @Override
+            public Meta createFromParcel(Parcel in) {
+                return new Meta(in);
+            }
+
+            @Override
+            public Meta[] newArray(int size) {
+                return new Meta[size];
+            }
+        };
     }
 
-    public static final class Data {
+    public static final class Data implements Parcelable {
         public final ArrayList<Skin_type> skin_type;
         public final ArrayList<Skin_tone> skin_tone;
         public final ArrayList<Skin_undertone> skin_undertone;
@@ -85,7 +125,7 @@ public final class PredefinedModel {
             return hair_concerns;
         }
 
-        public static final class Skin_type {
+        public static final class Skin_type implements Parcelable {
             public final long skityp_id;
             public final String skityp_name;
             public final String skityp_desc;
@@ -137,9 +177,50 @@ public final class PredefinedModel {
             public String getSkityp_changedate() {
                 return skityp_changedate;
             }
+
+            protected Skin_type(Parcel in) {
+                skityp_id = in.readLong();
+                skityp_name = in.readString();
+                skityp_desc = in.readString();
+                skityp_img = in.readString();
+                skityp_entryuser = in.readString();
+                skityp_entrydate = in.readString();
+                skityp_changeuser = in.readString();
+                skityp_changedate = in.readString();
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeLong(skityp_id);
+                dest.writeString(skityp_name);
+                dest.writeString(skityp_desc);
+                dest.writeString(skityp_img);
+                dest.writeString(skityp_entryuser);
+                dest.writeString(skityp_entrydate);
+                dest.writeString(skityp_changeuser);
+                dest.writeString(skityp_changedate);
+            }
+
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<Skin_type> CREATOR = new Parcelable.Creator<Skin_type>() {
+                @Override
+                public Skin_type createFromParcel(Parcel in) {
+                    return new Skin_type(in);
+                }
+
+                @Override
+                public Skin_type[] newArray(int size) {
+                    return new Skin_type[size];
+                }
+            };
         }
 
-        public static final class Skin_tone {
+        public static final class Skin_tone implements Parcelable {
             public final long skiton_id;
             public final String skiton_name;
             public final String skiton_desc;
@@ -191,9 +272,50 @@ public final class PredefinedModel {
             public String getSkiton_changedate() {
                 return skiton_changedate;
             }
+
+            protected Skin_tone(Parcel in) {
+                skiton_id = in.readLong();
+                skiton_name = in.readString();
+                skiton_desc = in.readString();
+                skiton_img = in.readString();
+                skiton_entryuser = in.readString();
+                skiton_entrydate = in.readString();
+                skiton_changeuser = in.readString();
+                skiton_changedate = in.readString();
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeLong(skiton_id);
+                dest.writeString(skiton_name);
+                dest.writeString(skiton_desc);
+                dest.writeString(skiton_img);
+                dest.writeString(skiton_entryuser);
+                dest.writeString(skiton_entrydate);
+                dest.writeString(skiton_changeuser);
+                dest.writeString(skiton_changedate);
+            }
+
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<Skin_tone> CREATOR = new Parcelable.Creator<Skin_tone>() {
+                @Override
+                public Skin_tone createFromParcel(Parcel in) {
+                    return new Skin_tone(in);
+                }
+
+                @Override
+                public Skin_tone[] newArray(int size) {
+                    return new Skin_tone[size];
+                }
+            };
         }
 
-        public static final class Skin_undertone {
+        public static final class Skin_undertone implements Parcelable {
             public final long skiund_id;
             public final String skiund_name;
             public final String skiund_desc;
@@ -245,9 +367,50 @@ public final class PredefinedModel {
             public String getSkiund_changedate() {
                 return skiund_changedate;
             }
+
+            protected Skin_undertone(Parcel in) {
+                skiund_id = in.readLong();
+                skiund_name = in.readString();
+                skiund_desc = in.readString();
+                skiund_img = in.readString();
+                skiund_entryuser = in.readString();
+                skiund_entrydate = in.readString();
+                skiund_changeuser = in.readString();
+                skiund_changedate = in.readString();
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeLong(skiund_id);
+                dest.writeString(skiund_name);
+                dest.writeString(skiund_desc);
+                dest.writeString(skiund_img);
+                dest.writeString(skiund_entryuser);
+                dest.writeString(skiund_entrydate);
+                dest.writeString(skiund_changeuser);
+                dest.writeString(skiund_changedate);
+            }
+
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<Skin_undertone> CREATOR = new Parcelable.Creator<Skin_undertone>() {
+                @Override
+                public Skin_undertone createFromParcel(Parcel in) {
+                    return new Skin_undertone(in);
+                }
+
+                @Override
+                public Skin_undertone[] newArray(int size) {
+                    return new Skin_undertone[size];
+                }
+            };
         }
 
-        public static final class Hair_type {
+        public static final class Hair_type implements Parcelable {
             public final long haityp_id;
             public final String haityp_name;
             public final String haityp_desc;
@@ -299,9 +462,50 @@ public final class PredefinedModel {
             public String getHaityp_changedate() {
                 return haityp_changedate;
             }
+
+            protected Hair_type(Parcel in) {
+                haityp_id = in.readLong();
+                haityp_name = in.readString();
+                haityp_desc = in.readString();
+                haityp_img = in.readString();
+                haityp_entryuser = in.readString();
+                haityp_entrydate = in.readString();
+                haityp_changeuser = in.readString();
+                haityp_changedate = in.readString();
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeLong(haityp_id);
+                dest.writeString(haityp_name);
+                dest.writeString(haityp_desc);
+                dest.writeString(haityp_img);
+                dest.writeString(haityp_entryuser);
+                dest.writeString(haityp_entrydate);
+                dest.writeString(haityp_changeuser);
+                dest.writeString(haityp_changedate);
+            }
+
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<Hair_type> CREATOR = new Parcelable.Creator<Hair_type>() {
+                @Override
+                public Hair_type createFromParcel(Parcel in) {
+                    return new Hair_type(in);
+                }
+
+                @Override
+                public Hair_type[] newArray(int size) {
+                    return new Hair_type[size];
+                }
+            };
         }
 
-        public static final class Hair_texture {
+        public static final class Hair_texture implements Parcelable {
             public final long haitex_id;
             public final String haitex_name;
             public final String haitex_desc;
@@ -353,9 +557,50 @@ public final class PredefinedModel {
             public String getHaitex_changedate() {
                 return haitex_changedate;
             }
+
+            protected Hair_texture(Parcel in) {
+                haitex_id = in.readLong();
+                haitex_name = in.readString();
+                haitex_desc = in.readString();
+                haitex_img = in.readString();
+                haitex_entryuser = in.readString();
+                haitex_entrydate = in.readString();
+                haitex_changeuser = in.readString();
+                haitex_changedate = in.readString();
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeLong(haitex_id);
+                dest.writeString(haitex_name);
+                dest.writeString(haitex_desc);
+                dest.writeString(haitex_img);
+                dest.writeString(haitex_entryuser);
+                dest.writeString(haitex_entrydate);
+                dest.writeString(haitex_changeuser);
+                dest.writeString(haitex_changedate);
+            }
+
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<Hair_texture> CREATOR = new Parcelable.Creator<Hair_texture>() {
+                @Override
+                public Hair_texture createFromParcel(Parcel in) {
+                    return new Hair_texture(in);
+                }
+
+                @Override
+                public Hair_texture[] newArray(int size) {
+                    return new Hair_texture[size];
+                }
+            };
         }
 
-        public static final class Skin_concern {
+        public static final class Skin_concern implements Parcelable {
             public final long skicon_id;
             public final String skicon_name;
             public final String skicon_desc;
@@ -401,9 +646,48 @@ public final class PredefinedModel {
             public String getSkicon_changedate() {
                 return skicon_changedate;
             }
+
+            protected Skin_concern(Parcel in) {
+                skicon_id = in.readLong();
+                skicon_name = in.readString();
+                skicon_desc = in.readString();
+                skicon_entryuser = in.readString();
+                skicon_entrydate = in.readString();
+                skicon_changeuser = in.readString();
+                skicon_changedate = in.readString();
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeLong(skicon_id);
+                dest.writeString(skicon_name);
+                dest.writeString(skicon_desc);
+                dest.writeString(skicon_entryuser);
+                dest.writeString(skicon_entrydate);
+                dest.writeString(skicon_changeuser);
+                dest.writeString(skicon_changedate);
+            }
+
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<Skin_concern> CREATOR = new Parcelable.Creator<Skin_concern>() {
+                @Override
+                public Skin_concern createFromParcel(Parcel in) {
+                    return new Skin_concern(in);
+                }
+
+                @Override
+                public Skin_concern[] newArray(int size) {
+                    return new Skin_concern[size];
+                }
+            };
         }
 
-        public static final class Body_concern {
+        public static final class Body_concern implements Parcelable {
             public final long bodcon_id;
             public final String bodcon_name;
             public final String bodcon_desc;
@@ -449,9 +733,48 @@ public final class PredefinedModel {
             public String getBodcon_changedate() {
                 return bodcon_changedate;
             }
+
+            protected Body_concern(Parcel in) {
+                bodcon_id = in.readLong();
+                bodcon_name = in.readString();
+                bodcon_desc = in.readString();
+                bodcon_entryuser = in.readString();
+                bodcon_entrydate = in.readString();
+                bodcon_changeuser = in.readString();
+                bodcon_changedate = in.readString();
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeLong(bodcon_id);
+                dest.writeString(bodcon_name);
+                dest.writeString(bodcon_desc);
+                dest.writeString(bodcon_entryuser);
+                dest.writeString(bodcon_entrydate);
+                dest.writeString(bodcon_changeuser);
+                dest.writeString(bodcon_changedate);
+            }
+
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<Body_concern> CREATOR = new Parcelable.Creator<Body_concern>() {
+                @Override
+                public Body_concern createFromParcel(Parcel in) {
+                    return new Body_concern(in);
+                }
+
+                @Override
+                public Body_concern[] newArray(int size) {
+                    return new Body_concern[size];
+                }
+            };
         }
 
-        public static final class Hair_concern {
+        public static final class Hair_concern implements Parcelable {
             public final long haicon_id;
             public final String haicon_name;
             public final String haicon_desc;
@@ -497,6 +820,195 @@ public final class PredefinedModel {
             public String getHaicon_changedate() {
                 return haicon_changedate;
             }
+
+            protected Hair_concern(Parcel in) {
+                haicon_id = in.readLong();
+                haicon_name = in.readString();
+                haicon_desc = in.readString();
+                haicon_entryuser = in.readString();
+                haicon_entrydate = in.readString();
+                haicon_changeuser = in.readString();
+                haicon_changedate = in.readString();
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeLong(haicon_id);
+                dest.writeString(haicon_name);
+                dest.writeString(haicon_desc);
+                dest.writeString(haicon_entryuser);
+                dest.writeString(haicon_entrydate);
+                dest.writeString(haicon_changeuser);
+                dest.writeString(haicon_changedate);
+            }
+
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<Hair_concern> CREATOR = new Parcelable.Creator<Hair_concern>() {
+                @Override
+                public Hair_concern createFromParcel(Parcel in) {
+                    return new Hair_concern(in);
+                }
+
+                @Override
+                public Hair_concern[] newArray(int size) {
+                    return new Hair_concern[size];
+                }
+            };
         }
+
+        protected Data(Parcel in) {
+            if (in.readByte() == 0x01) {
+                skin_type = new ArrayList<Skin_type>();
+                in.readList(skin_type, Skin_type.class.getClassLoader());
+            } else {
+                skin_type = null;
+            }
+            if (in.readByte() == 0x01) {
+                skin_tone = new ArrayList<Skin_tone>();
+                in.readList(skin_tone, Skin_tone.class.getClassLoader());
+            } else {
+                skin_tone = null;
+            }
+            if (in.readByte() == 0x01) {
+                skin_undertone = new ArrayList<Skin_undertone>();
+                in.readList(skin_undertone, Skin_undertone.class.getClassLoader());
+            } else {
+                skin_undertone = null;
+            }
+            if (in.readByte() == 0x01) {
+                hair_type = new ArrayList<Hair_type>();
+                in.readList(hair_type, Hair_type.class.getClassLoader());
+            } else {
+                hair_type = null;
+            }
+            if (in.readByte() == 0x01) {
+                hair_texture = new ArrayList<Hair_texture>();
+                in.readList(hair_texture, Hair_texture.class.getClassLoader());
+            } else {
+                hair_texture = null;
+            }
+            if (in.readByte() == 0x01) {
+                skin_concerns = new ArrayList<Skin_concern>();
+                in.readList(skin_concerns, Skin_concern.class.getClassLoader());
+            } else {
+                skin_concerns = null;
+            }
+            if (in.readByte() == 0x01) {
+                body_concerns = new ArrayList<Body_concern>();
+                in.readList(body_concerns, Body_concern.class.getClassLoader());
+            } else {
+                body_concerns = null;
+            }
+            if (in.readByte() == 0x01) {
+                hair_concerns = new ArrayList<Hair_concern>();
+                in.readList(hair_concerns, Hair_concern.class.getClassLoader());
+            } else {
+                hair_concerns = null;
+            }
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            if (skin_type == null) {
+                dest.writeByte((byte) (0x00));
+            } else {
+                dest.writeByte((byte) (0x01));
+                dest.writeList(skin_type);
+            }
+            if (skin_tone == null) {
+                dest.writeByte((byte) (0x00));
+            } else {
+                dest.writeByte((byte) (0x01));
+                dest.writeList(skin_tone);
+            }
+            if (skin_undertone == null) {
+                dest.writeByte((byte) (0x00));
+            } else {
+                dest.writeByte((byte) (0x01));
+                dest.writeList(skin_undertone);
+            }
+            if (hair_type == null) {
+                dest.writeByte((byte) (0x00));
+            } else {
+                dest.writeByte((byte) (0x01));
+                dest.writeList(hair_type);
+            }
+            if (hair_texture == null) {
+                dest.writeByte((byte) (0x00));
+            } else {
+                dest.writeByte((byte) (0x01));
+                dest.writeList(hair_texture);
+            }
+            if (skin_concerns == null) {
+                dest.writeByte((byte) (0x00));
+            } else {
+                dest.writeByte((byte) (0x01));
+                dest.writeList(skin_concerns);
+            }
+            if (body_concerns == null) {
+                dest.writeByte((byte) (0x00));
+            } else {
+                dest.writeByte((byte) (0x01));
+                dest.writeList(body_concerns);
+            }
+            if (hair_concerns == null) {
+                dest.writeByte((byte) (0x00));
+            } else {
+                dest.writeByte((byte) (0x01));
+                dest.writeList(hair_concerns);
+            }
+        }
+
+        @SuppressWarnings("unused")
+        public static final Parcelable.Creator<Data> CREATOR = new Parcelable.Creator<Data>() {
+            @Override
+            public Data createFromParcel(Parcel in) {
+                return new Data(in);
+            }
+
+            @Override
+            public Data[] newArray(int size) {
+                return new Data[size];
+            }
+        };
     }
+
+    protected PredefinedModel(Parcel in) {
+        meta = (Meta) in.readValue(Meta.class.getClassLoader());
+        data = (Data) in.readValue(Data.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(meta);
+        dest.writeValue(data);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<PredefinedModel> CREATOR = new Parcelable.Creator<PredefinedModel>() {
+        @Override
+        public PredefinedModel createFromParcel(Parcel in) {
+            return new PredefinedModel(in);
+        }
+
+        @Override
+        public PredefinedModel[] newArray(int size) {
+            return new PredefinedModel[size];
+        }
+    };
 }
