@@ -1,12 +1,9 @@
 package com.fdbr.android.utils;
 
 import android.app.Activity;
-<<<<<<< HEAD
 import android.os.Build;
-=======
 import android.content.Context;
 import android.graphics.Point;
->>>>>>> e15576df5a3730a6581014320531e952196602c3
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
