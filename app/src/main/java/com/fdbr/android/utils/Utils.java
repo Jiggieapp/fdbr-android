@@ -74,4 +74,30 @@ public class Utils {
 
         return screenWidth;
     }
+
+    public static boolean contains(String[] array, String value, boolean ignoreCase) {
+        return indexOf(array, value, ignoreCase) >= 0;
+    }
+
+    public static int indexOf(String[] array, String value, boolean ignoreCase) {
+        final int length = array == null ? 0 : array.length;
+
+        for (int i = 0; i < length; i++) {
+            if (isEquals(array[i], value, ignoreCase))
+                return i;
+        }
+
+        return -1;
+    }
+
+    public static boolean isEquals(String str1, String str2, boolean ignoreCase) {
+        if (str1 == null)
+            return str2 == null;
+        else if (str2 == null)
+            return false;
+        else if (ignoreCase)
+            return str1.equalsIgnoreCase(str2);
+        else
+            return str1.equals(str2);
+    }
 }
