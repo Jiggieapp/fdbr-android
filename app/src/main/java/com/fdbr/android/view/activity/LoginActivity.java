@@ -5,6 +5,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.fdbr.android.MainActivity;
 import com.fdbr.android.R;
 import com.fdbr.android.base.BaseActivity;
 import com.fdbr.android.model.AccessToken;
@@ -77,6 +78,12 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
             HashMap<String, Object> postLoginModel = new HashMap<>();
             postLoginModel.put("username", username);
             postLoginModel.put("password", password);
+            postLoginModel.put("is_fb", false);
+            postLoginModel.put("fb_id", Constant.BLANK);
+            postLoginModel.put("first_name", Constant.BLANK);
+            postLoginModel.put("last_name", Constant.BLANK);
+            postLoginModel.put("email", Constant.BLANK);
+            postLoginModel.put("gender", Constant.BLANK);
 
             //String sd = String.valueOf(new Gson().toJson(postLoginModel));
             //Log.d("sd", "sd");
@@ -107,7 +114,7 @@ public class LoginActivity extends BaseActivity implements AccessTokenView, Acco
         saveToPreference(Constant.USER_ID, String.valueOf(loginModel.getData().getRows().getId()));
         /*implementation.verifyToken();*/
 
-        startActivity(new Intent(LoginActivity.this, SetupBeautyProfileActivity.class));
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 
     @Override

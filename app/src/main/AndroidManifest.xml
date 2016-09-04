@@ -23,12 +23,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".view.activity.WelcomeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-            <!--
+        <activity android:name=".view.activity.SplashScreenActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,8 +44,8 @@
             android:name=".view.activity.ChangePassActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"></activity>
-        <activity
-            android:name=".view.activity.SignupDetailActivity"
+
+        <activity android:name=".view.activity.WelcomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
@@ -72,11 +69,23 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.TransparentActivity"></activity>
 
+        <activity android:name=".view.activity.SignupDetailActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="36dfdb6df5408ec08f2a4dc2f94e84c016b076e2" />
-
         <activity android:name=".view.activity.PostTakePhotoActivity"></activity>
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
     </application>
 
 </manifest>

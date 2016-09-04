@@ -13,4 +13,7 @@
     <color name="colorGrey">#9E9E9E </color>
     <color name="btn_default_light_pressed">#40ffffff</color>
     <color name="colorGreyLight">#F7F7F7 </color>
+
+    <color name="colorFacebook">#3B5998</color>
+    <color name="colorFacebookDark">#901E0058</color>
 </resources>

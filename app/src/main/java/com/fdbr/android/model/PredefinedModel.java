@@ -81,8 +81,9 @@ public final class PredefinedModel implements Parcelable {
         public final ArrayList<Skin_concern> skin_concerns;
         public final ArrayList<Body_concern> body_concerns;
         public final ArrayList<Hair_concern> hair_concerns;
+        public final ArrayList<City> city;
 
-        public Data(ArrayList<Skin_type> skin_type, ArrayList<Skin_tone> skin_tone, ArrayList<Skin_undertone> skin_undertone, ArrayList<Hair_type> hair_type, ArrayList<Hair_texture> hair_texture, ArrayList<Skin_concern> skin_concerns, ArrayList<Body_concern> body_concerns, ArrayList<Hair_concern> hair_concerns){
+        public Data(ArrayList<Skin_type> skin_type, ArrayList<Skin_tone> skin_tone, ArrayList<Skin_undertone> skin_undertone, ArrayList<Hair_type> hair_type, ArrayList<Hair_texture> hair_texture, ArrayList<Skin_concern> skin_concerns, ArrayList<Body_concern> body_concerns, ArrayList<Hair_concern> hair_concerns, ArrayList<City> city){
             this.skin_type = skin_type;
             this.skin_tone = skin_tone;
             this.skin_undertone = skin_undertone;
@@ -91,6 +92,7 @@ public final class PredefinedModel implements Parcelable {
             this.skin_concerns = skin_concerns;
             this.body_concerns = body_concerns;
             this.hair_concerns = hair_concerns;
+            this.city = city;
         }
 
         public ArrayList<Skin_type> getSkin_type() {
@@ -123,6 +125,10 @@ public final class PredefinedModel implements Parcelable {
 
         public ArrayList<Hair_concern> getHair_concerns() {
             return hair_concerns;
+        }
+
+        public ArrayList<City> getCity() {
+            return city;
         }
 
         public static final class Skin_type implements Parcelable {
@@ -861,6 +867,53 @@ public final class PredefinedModel implements Parcelable {
             };
         }
 
+        public static final class City implements Parcelable {
+            public final long id;
+            public final String name;
+
+            public City(long id, String name){
+                this.id = id;
+                this.name = name;
+            }
+
+            public long getId() {
+                return id;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            protected City(Parcel in) {
+                id = in.readLong();
+                name = in.readString();
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeLong(id);
+                dest.writeString(name);
+            }
+
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<City> CREATOR = new Parcelable.Creator<City>() {
+                @Override
+                public City createFromParcel(Parcel in) {
+                    return new City(in);
+                }
+
+                @Override
+                public City[] newArray(int size) {
+                    return new City[size];
+                }
+            };
+        }
+
         protected Data(Parcel in) {
             if (in.readByte() == 0x01) {
                 skin_type = new ArrayList<Skin_type>();
@@ -909,6 +962,12 @@ public final class PredefinedModel implements Parcelable {
                 in.readList(hair_concerns, Hair_concern.class.getClassLoader());
             } else {
                 hair_concerns = null;
+            }
+            if (in.readByte() == 0x01) {
+                city = new ArrayList<City>();
+                in.readList(city, City.class.getClassLoader());
+            } else {
+                city = null;
             }
         }
 
@@ -966,6 +1025,12 @@ public final class PredefinedModel implements Parcelable {
             } else {
                 dest.writeByte((byte) (0x01));
                 dest.writeList(hair_concerns);
+            }
+            if (city == null) {
+                dest.writeByte((byte) (0x00));
+            } else {
+                dest.writeByte((byte) (0x01));
+                dest.writeList(city);
             }
         }
 

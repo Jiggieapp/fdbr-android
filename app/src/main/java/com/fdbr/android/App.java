@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import com.crashlytics.android.Crashlytics;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 import io.fabric.sdk.android.Fabric;
 
 /**
@@ -18,6 +21,8 @@ public class App extends Application {
         super.onCreate();
         //Fabric.with(this, new Crashlytics());
         instance = this;
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
     }
 
     private static SharedPreferences getSharedPreferences()

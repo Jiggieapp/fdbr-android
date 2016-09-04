@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_product"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:padding="@dimen/padding"/>
+
+    <TextView
+        android:id="@+id/txt_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/img_product"
+        android:text="Royal Beauty"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginTop="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding_half"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/txt_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_brand"
+        android:layout_toRightOf="@id/img_product"
+        android:text="Maskara Masakini"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginBottom="@dimen/padding_half"
+        android:textAlignment="center"/>
+
+    <android.support.v7.widget.AppCompatRatingBar
+        android:id="@+id/rate_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_half"
+        android:layout_below="@id/txt_product"
+        android:layout_toRightOf="@id/img_product"
+        android:numStars="5"
+        android:stepSize="1"
+        android:isIndicator="true"
+        android:max="5"
+        />
+
+    <TextView
+        android:id="@+id/txt_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rate_bar"
+        android:layout_toRightOf="@id/img_product"
+        android:text="Rp 200.000"
+        android:textSize="@dimen/font_standar"
+        android:layout_marginBottom="@dimen/padding_half"
+        android:textAlignment="center"/>
+
+</RelativeLayout>
