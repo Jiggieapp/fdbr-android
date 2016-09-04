@@ -42,7 +42,7 @@
         android:hint="@string/name"
         android:inputType="textEmailAddress"
         app:met_baseColor="@color/colorGrey"
-        app:met_primaryColor="@color/colorBlack"
+        app:met_primaryColor="@color/colorAccent"
         app:met_textColorHint="@color/colorGrey"
         app:met_errorColor="@android:color/holo_red_light"
         android:layout_below="@id/txt_desc_profile"
@@ -60,7 +60,7 @@
         android:hint="@string/sgd_dob"
         android:inputType="textEmailAddress"
         app:met_baseColor="@color/colorGrey"
-        app:met_primaryColor="@color/colorBlack"
+        app:met_primaryColor="@color/colorAccent"
         app:met_textColorHint="@color/colorGrey"
         app:met_errorColor="@android:color/holo_red_light"
         android:layout_below="@id/edt_name"
@@ -71,23 +71,19 @@
         android:singleLine="true"
         />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/edt_location"
+    <AutoCompleteTextView
+        android:id="@+id/auto_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/location"
-        android:inputType="textEmailAddress"
-        app:met_baseColor="@color/colorGrey"
-        app:met_primaryColor="@color/colorBlack"
-        app:met_textColorHint="@color/colorGrey"
-        app:met_errorColor="@android:color/holo_red_light"
         android:layout_below="@id/edt_dob"
         android:textSize="@dimen/font_standar"
-        android:layout_marginLeft="@dimen/padding"
-        android:layout_marginRight="@dimen/padding"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
         android:layout_marginBottom="@dimen/padding"
         android:singleLine="true"
-        />
+        android:theme="@style/Autocomplete"/>
+
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edt_bio"
@@ -96,10 +92,10 @@
         android:hint="@string/bio"
         android:inputType="textEmailAddress"
         app:met_baseColor="@color/colorGrey"
-        app:met_primaryColor="@color/colorBlack"
+        app:met_primaryColor="@color/colorAccent"
         app:met_textColorHint="@color/colorGrey"
         app:met_errorColor="@android:color/holo_red_light"
-        android:layout_below="@id/edt_location"
+        android:layout_below="@id/auto_location"
         android:textSize="@dimen/font_standar"
         android:layout_marginLeft="@dimen/padding"
         android:layout_marginRight="@dimen/padding"

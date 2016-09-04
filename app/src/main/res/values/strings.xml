@@ -184,6 +184,7 @@
     <string name="wishlist">Wishlist</string>
     <string name="tried">Tried</string>
     <string name="setup_tag1">Create Beauty Profile</string>
+    <string name="wait">Please wait..</string>
     <!--END OF GENERAL-->
 
     <!--TAB-->
@@ -192,5 +193,15 @@
     <string name="products">Products</string>
     <!--END OF TAB-->
 
+    <string-array name="dogs_list">
+        <item>Bichon Frise</item>
+        <item>Border Collie</item>
+        <item>Border Terrier</item>
+        <item>Boxer</item>
+        <item>Chihuahua</item>
+        <item>German Shepherd</item>
+        <item>Golden Retriever</item>
+        <item>Greyhound</item>
+    </string-array>
 
 </resources>

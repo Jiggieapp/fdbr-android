@@ -15,8 +15,10 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.fdbr.android.MainActivity;
 import com.fdbr.android.R;
 import com.fdbr.android.base.BaseActivity;
+import com.fdbr.android.model.FBModel;
 import com.fdbr.android.model.LoginModel;
 import com.fdbr.android.presenter.implementation.AccountPresenterImplementation;
 import com.fdbr.android.utils.Constant;
@@ -43,17 +45,22 @@ public class WelcomeActivity extends BaseActivity implements AccountView.LoginVi
     @BindView(R.id.rel_fb)
     RelativeLayout relFb;
 
-    //private AccountPresenterImplementation.LoginPresenterImplementation
+    private AccountPresenterImplementation.LoginPresenterImplementation loginImplementation;
 
     private static final String[] FACEBOOK_PERMISSIONS = new String[]{
             "public_profile", "email", "user_about_me", "user_birthday", "user_photos", "user_location",
             "user_friends"
     };
 
+    FBModel fbModel;
+
     CallbackManager callbackManager;
 
     @Override
     protected void onCreate() {
+
+        loginImplementation = new AccountPresenterImplementation.LoginPresenterImplementation();
+        loginImplementation.onAttachView(this);
 
         LoginManager.getInstance().registerCallback(this.callbackManager = CallbackManager.Factory.create(), this.facebookCallback);
 
@@ -119,15 +126,19 @@ public class WelcomeActivity extends BaseActivity implements AccountView.LoginVi
             String email = object.optString("email");
             String gender = object.optString("gender");
 
+            fbModel = new FBModel(fb_id, first_name, last_name, email, gender);
+
             HashMap<String, Object> postLoginModel = new HashMap<>();
             postLoginModel.put("username", Constant.BLANK);
             postLoginModel.put("password", Constant.BLANK);
             postLoginModel.put("is_fb", true);
             postLoginModel.put("fb_id", fb_id);
-            postLoginModel.put("first_name", first_name);
-            postLoginModel.put("last_name", last_name);
-            postLoginModel.put("email", email);
-            postLoginModel.put("gender", gender);
+            postLoginModel.put("first_name", Constant.BLANK);
+            postLoginModel.put("last_name", Constant.BLANK);
+            postLoginModel.put("email", Constant.BLANK);
+            postLoginModel.put("gender", Constant.BLANK);
+
+            loginImplementation.login(Constant.URL_LOGIN, postLoginModel);
 
         }
     };
@@ -151,5 +162,16 @@ public class WelcomeActivity extends BaseActivity implements AccountView.LoginVi
     @Override
     public void login(LoginModel loginModel) {
 
+        saveToPreference(Constant.ACCESS_TOKEN_PREF, loginModel.getData().getToken());
+
+        if(loginModel.getData().is_exist()){
+            Intent i = new Intent(new Intent(WelcomeActivity.this, MainActivity.class));
+            startActivity(i);
+        }else{
+            Intent i = new Intent(new Intent(WelcomeActivity.this, SignupDetailActivity.class));
+            i.putExtra(Constant.IS_FACEBOOK, true);
+            i.putExtra(fbModel.getClass().getName(), fbModel);
+            startActivity(i);
+        }
     }
 }

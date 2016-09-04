@@ -8,13 +8,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.fdbr.android.App;
 import com.fdbr.android.R;
 import com.fdbr.android.base.BaseActivity;
 import com.fdbr.android.model.PredefinedModel;
 import com.fdbr.android.presenter.implementation.AccountPresenterImplementation;
+import com.fdbr.android.utils.Constant;
 import com.fdbr.android.utils.Utils;
 import com.fdbr.android.view.interfaces.AccountView;
 import com.fdbr.android.view.widget.FlowLayout;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -27,7 +30,7 @@ import butterknife.OnClick;
 /**
  * Created by LTE on 9/1/2016.
  */
-public class SetupBeautyProfileActivity extends BaseActivity implements AccountView.PredefinedView {
+public class SetupBeautyProfileActivity extends BaseActivity{
 
     @BindView(R.id.fl_skin_type)
     FlowLayout flSkinType;
@@ -62,34 +65,27 @@ public class SetupBeautyProfileActivity extends BaseActivity implements AccountV
     String[] hk_tx = {"Tag a", "Tag b", "Tag c"};
 
     private static final String TAG = SetupBeautyProfileActivity.class.getSimpleName();
-    private AccountPresenterImplementation.PredefinedPresenterImplementation predefinedPresenterImplementation;
 
+    PredefinedModel predefinedModel;
     PredefinedModel.Data data;
-
-    @Override
     protected void onCreate() {
 
         initView();
 
-        predefinedPresenterImplementation = new AccountPresenterImplementation.PredefinedPresenterImplementation();
-        predefinedPresenterImplementation.onAttachView(this);
-        predefinedPresenterImplementation.predefined();
+        String predefined = App.getInstance().getFromPreference(Constant.PREDEFINED);
+        predefinedModel = new Gson().fromJson(predefined, PredefinedModel.class);
 
-    }
-
-    private void initView() {
-        getSupportActionBar().setTitle(Utils.getStringResource(this, R.string.setup_tag1));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    @Override
-    public void predefined(PredefinedModel predefinedModel) {
         data = predefinedModel.getData();
         setupTagSkinType(data.getSkin_type());
         setupTagSkinTone(data.getSkin_tone());
         setupTagSkinUndertone(data.getSkin_undertone());
         setupTagHairType(data.getHair_type());
         setupTagHairTx(data.getHair_texture());
+    }
+
+    private void initView() {
+        getSupportActionBar().setTitle(Utils.getStringResource(this, R.string.setup_tag1));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void setupTagSkinType(ArrayList<PredefinedModel.Data.Skin_type> data) {
@@ -304,6 +300,5 @@ public class SetupBeautyProfileActivity extends BaseActivity implements AccountV
     @Override
     public void onDestroy() {
         super.onDestroy();
-        predefinedPresenterImplementation.onUnattachView();
     }
 }

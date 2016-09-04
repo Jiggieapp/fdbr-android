@@ -99,7 +99,9 @@ public class SignUpActivity extends BaseActivity implements AccountView.Register
 
         saveToPreference(Constant.ACCESS_TOKEN_PREF, registerModel.getData().getToken());
 
-        startActivity(new Intent(SignUpActivity.this, SetupBeautyProfileActivity.class));
+        Intent i = new Intent(SignUpActivity.this, SignupDetailActivity.class);
+        i.putExtra(Constant.IS_FACEBOOK, false);
+        startActivity(i);
     }
 
     @Override

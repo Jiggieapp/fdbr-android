@@ -28,6 +28,9 @@ public class Constant {
     //pref
     public static final String ACCESS_TOKEN_PREF = "access_token";
     public static final String USER_ID = "user_id";
+    public static final String IS_FACEBOOK = "is_facebook";
+    public static final String USER_PROFILE_INFO = "user_info";
+    public static final String PREDEFINED = "predefined";
 
     //status code
 

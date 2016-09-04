@@ -1,6 +1,7 @@
 package com.fdbr.android.utils;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Point;
 import android.util.Log;
@@ -99,5 +100,25 @@ public class Utils {
             return str1.equalsIgnoreCase(str2);
         else
             return str1.equals(str2);
+    }
+
+    private static ProgressDialog progressDialog;
+    private static ProgressDialog getMyProgressDialog(Activity a){
+        if(progressDialog==null){
+            progressDialog = new ProgressDialog(a);
+            progressDialog.setMessage(getStringResource(a, R.string.wait));
+        }
+
+        return progressDialog;
+    }
+
+    public static void showMyProgressDialog(Activity a){
+        if(!getMyProgressDialog(a).isShowing())
+            getMyProgressDialog(a).show();
+    }
+
+    public static void dismissMyProgressDialog(Activity a){
+        if(getMyProgressDialog(a)!=null&&getMyProgressDialog(a).isShowing())
+            getMyProgressDialog(a).dismiss();
     }
 }

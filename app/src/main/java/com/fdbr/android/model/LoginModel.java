@@ -43,10 +43,16 @@ public final class LoginModel {
     public static final class Data {
         public final Rows rows;
         public final String token;
+        public final boolean is_exist;
 
-        public Data(Rows rows, String token){
+        public Data(Rows rows, String token, boolean is_exist){
             this.rows = rows;
             this.token = token;
+            this.is_exist = is_exist;
+        }
+
+        public boolean is_exist() {
+            return is_exist;
         }
 
         public Rows getRows() {
